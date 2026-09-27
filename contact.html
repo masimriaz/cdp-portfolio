@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <!--
   EMAIL SETUP — FULLY CONFIGURED ✅
   ✅ Service ID:  service_y9lg90x
@@ -7,297 +6,361 @@
   ✅ To email:    asimesp@gmail.com
   Contact form is live — submissions email asimesp@gmail.com directly.
 -->
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact CDP Platform — Get in touch to request a demo, discuss pricing, or explore partnership opportunities." />
-  <title>Contact — CDP Platform</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="css/main.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Contact CDP Platform — Book a demo, request pricing, or ask anything about the platform. We reply within 24 hours."/>
+  <title>Contact Us — CDP Platform</title>
+
+  <!-- 1. Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <!-- 2. Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- 3. Font Awesome 6.4 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <!-- 4. Custom CSS -->
+  <link rel="stylesheet" href="css/main.css"/>
+
   <style>
-    .contact-layout {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr;
-      gap: 3.5rem;
-      align-items: start;
-      margin-top: 3rem;
+    /* ── Contact page specific ─────────────────────────────────── */
+    .contact-hero {
+      background: linear-gradient(135deg, #080C14 0%, #0D1526 55%, #162039 100%);
+      padding: 120px 0 80px;
+      position: relative;
+      overflow: hidden;
     }
-    .contact-form-card {
-      background: var(--c-white);
-      border: 1px solid var(--c-border);
-      border-radius: var(--r-lg);
-      padding: 2.5rem;
-      box-shadow: var(--shadow);
+    .contact-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(27,79,255,.12) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
     }
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
+    .contact-hero__glow {
+      position: absolute; top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(27,79,255,.15) 0%, transparent 65%);
+      pointer-events: none;
     }
-    .contact-form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
+    .contact-hero__badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(27,79,255,.15);
+      border: 1px solid rgba(27,79,255,.3);
+      border-radius: 999px;
+      padding: 6px 16px;
+      font-size: .8rem; font-weight: 600; color: #93B4FF;
+      margin-bottom: 1.25rem;
     }
-    .contact-submit {
-      margin-top: .5rem;
-      width: 100%;
-      justify-content: center;
-      padding: .875rem 1.75rem;
-      font-size: 1rem;
+    .contact-hero__badge .live-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #00C27A;
+      animation: pulse-dot 2s ease infinite;
     }
-    .contact-submit:disabled {
-      opacity: .7;
-      cursor: not-allowed;
-      transform: none;
+    @keyframes pulse-dot {
+      0%,100% { box-shadow: 0 0 0 0 rgba(0,194,122,.4); }
+      50%      { box-shadow: 0 0 0 5px rgba(0,194,122,0); }
     }
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
+    .contact-hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 900; line-height: 1.1;
+      letter-spacing: -.03em;
+      color: #fff; margin-bottom: 1rem;
     }
-    .info-card {
-      background: var(--c-white);
-      border: 1px solid var(--c-border);
-      border-radius: var(--r-lg);
-      padding: 1.5rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      transition: transform .2s, box-shadow .2s;
+    .contact-hero h1 .gradient-text {
+      background: linear-gradient(135deg, #1B4FFF, #93B4FF 60%, #00C27A);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .info-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
-    .info-icon {
-      width: 44px; height: 44px;
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      flex-shrink: 0;
+    .contact-hero p {
+      font-size: 1.05rem; color: #7A92BC; line-height: 1.7; max-width: 520px;
     }
-    .info-label {
-      font-size: .72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .07em;
-      color: var(--c-slate);
-      margin-bottom: .25rem;
+
+    /* ── Hero stat pills ───────────────────────────────────────── */
+    .contact-stats {
+      display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 2rem;
     }
-    .info-value {
-      font-size: .95rem;
-      font-weight: 600;
-      color: var(--c-text1);
+    .contact-stat {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px; padding: 10px 16px;
     }
-    .info-sub {
+    .contact-stat__icon {
+      width: 32px; height: 32px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
       font-size: .8rem;
-      color: var(--c-text2);
-      margin-top: .15rem;
     }
-    .success-state, .error-state {
+    .contact-stat__val { font-weight: 800; font-size: .88rem; color: #fff; }
+    .contact-stat__lbl { font-size: .72rem; color: #7A92BC; }
+
+    /* ── Form card ─────────────────────────────────────────────── */
+    .contact-form-wrap {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 24px 80px rgba(27,79,255,.14);
+      overflow: hidden;
+    }
+    .contact-form-header {
+      background: linear-gradient(135deg, #1B4FFF, #0F38CC);
+      padding: 1.75rem 2rem;
+    }
+    .contact-form-header h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.3rem; font-weight: 800; color: #fff; margin: 0;
+    }
+    .contact-form-header p {
+      font-size: .85rem; color: rgba(255,255,255,.7); margin: .35rem 0 0;
+    }
+    .contact-form-body { padding: 2rem; }
+
+    /* Form controls */
+    .cdp-label {
+      font-size: .8rem; font-weight: 700; color: #1E2D4A;
+      margin-bottom: .35rem; display: block;
+    }
+    .cdp-label .req { color: #1B4FFF; margin-left: 2px; }
+    .cdp-input {
+      width: 100%;
+      padding: .75rem 1rem;
+      font-size: .9rem; font-family: 'Inter', sans-serif;
+      color: #0A0F1E;
+      background: #F4F7FF;
+      border: 1.5px solid #DDE5F7;
+      border-radius: 10px;
+      outline: none;
+      transition: border-color .15s, box-shadow .15s, background .15s;
+    }
+    .cdp-input:focus {
+      border-color: #1B4FFF;
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(27,79,255,.08);
+    }
+    .cdp-input::placeholder { color: #A0AEC0; }
+    .cdp-input.is-invalid { border-color: #FF4747; background: #FFF5F5; }
+    .cdp-error { font-size: .75rem; color: #FF4747; margin-top: .3rem; display: block; min-height: 1rem; }
+    select.cdp-input { cursor: pointer; }
+    textarea.cdp-input { resize: vertical; min-height: 130px; }
+
+    /* Submit button */
+    .cdp-submit {
+      width: 100%; padding: .9rem;
+      background: linear-gradient(135deg, #1B4FFF, #0F38CC);
+      color: #fff; font-weight: 700; font-size: 1rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      border: none; border-radius: 12px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: .625rem;
+      transition: all .2s;
+      box-shadow: 0 6px 24px rgba(27,79,255,.35);
+    }
+    .cdp-submit:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 32px rgba(27,79,255,.45);
+    }
+    .cdp-submit:disabled { opacity: .65; cursor: not-allowed; transform: none; }
+    .cdp-spinner {
+      display: none; width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,.35);
+      border-top-color: #fff; border-radius: 50%;
+      animation: spin .7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Success / Error states */
+    .cdp-success {
       display: none;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 3rem 2rem;
-      gap: 1rem;
+      text-align: center; padding: 2.5rem 1.5rem;
     }
-    .success-state { color: #065F46; }
-    .error-state { color: #991B1B; }
-    .success-icon, .error-icon {
-      font-size: 3.5rem;
-      margin-bottom: .5rem;
+    .cdp-success__icon {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: linear-gradient(135deg, #00C27A, #0891B2);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.25rem; font-size: 1.8rem; color: #fff;
     }
-    .success-icon { color: var(--c-green); }
-    .error-icon { color: var(--c-red); }
-    @media (max-width: 768px) {
-      .contact-layout { grid-template-columns: 1fr; }
-      .contact-form-row { grid-template-columns: 1fr; }
+    .cdp-success h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.35rem; font-weight: 800; color: #0A0F1E; margin-bottom: .5rem;
     }
+    .cdp-success p { font-size: .9rem; color: #3D5280; line-height: 1.7; }
+    .cdp-error-banner {
+      display: none;
+      padding: .875rem 1rem;
+      background: #FFF5F5; border: 1.5px solid #FFBABA; border-radius: 10px;
+      font-size: .85rem; color: #B91C1C; margin-bottom: 1rem;
+    }
+
+    /* ── Info sidebar ──────────────────────────────────────────── */
+    .info-card {
+      border-radius: 16px; overflow: hidden;
+      box-shadow: 0 8px 40px rgba(27,79,255,.1);
+    }
+    .info-card__header {
+      background: linear-gradient(135deg, #080C14, #162039);
+      padding: 1.75rem;
+    }
+    .info-card__header h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem; font-weight: 800; color: #fff; margin: 0 0 .35rem;
+    }
+    .info-card__header p { font-size: .83rem; color: #7A92BC; margin: 0; }
+    .info-items { background: #fff; }
+    .info-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid #F4F7FF;
+      transition: background .15s;
+    }
+    .info-item:last-child { border-bottom: none; }
+    .info-item:hover { background: #F4F7FF; }
+    .info-icon {
+      width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .9rem;
+    }
+    .info-item__lbl {
+      font-size: .65rem; font-weight: 800; text-transform: uppercase;
+      letter-spacing: .1em; color: #7A92BC; margin-bottom: 3px;
+    }
+    .info-item__val { font-weight: 700; font-size: .9rem; color: #0A0F1E; }
+    .info-item__sub { font-size: .76rem; color: #3D5280; margin-top: 1px; }
+
+    /* ── Why reach out cards ───────────────────────────────────── */
+    .reach-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 14px; padding: 1.25rem;
+      transition: background .2s, transform .2s;
+    }
+    .reach-card:hover {
+      background: rgba(255,255,255,.07);
+      transform: translateY(-3px);
+    }
+    .reach-card__icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .9rem; margin-bottom: .75rem;
+    }
+    .reach-card h5 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: .88rem; font-weight: 800; color: #fff; margin-bottom: .35rem;
+    }
+    .reach-card p { font-size: .78rem; color: #7A92BC; line-height: 1.6; margin: 0; }
   </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
-<nav class="nav scrolled" id="mainNav">
-  <div class="nav__inner">
-    <a href="index.html" class="nav__logo">
-      <span class="nav__logo-dot"></span>
-      CDP Platform
+<!-- ── NAVBAR (identical to index.html) ─────────────────────────── -->
+<nav class="navbar navbar-expand-lg fixed-top cdp-nav" id="cdpNav">
+  <div class="container-xl">
+    <a class="navbar-brand d-flex align-items-center gap-2 fw-800" href="index.html">
+      <i class="fas fa-bullseye" style="color:#1B4FFF"></i>
+      <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800">CDP Platform</span>
     </a>
-    <div class="nav__links">
-      <a href="index.html#pillars">Platform</a>
-      <a href="demo.html">Demo</a>
-      <a href="index.html#features">Features</a>
-      <a href="index.html#integrations">Integrations</a>
-      <a href="index.html#pricing">Pricing</a>
-      <a href="contact.html" class="active">Contact</a>
-      <a href="https://github.com" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
-      <a href="demo.html" class="nav__cta">Live Demo</a>
-    </div>
-    <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
+    <button class="navbar-toggler border-0" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navContact"
+            aria-controls="navContact" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
+    <div class="collapse navbar-collapse" id="navContact">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="index.html#platform">Platform</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="demo.html">Demo</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary btn-sm px-3">Book Demo</a>
+    </div>
   </div>
 </nav>
 
-<!-- Mobile overlay -->
-<div class="nav__mobile-overlay">
-  <a href="index.html#pillars">Platform</a>
-  <a href="demo.html">Demo</a>
-  <a href="index.html#features">Features</a>
-  <a href="index.html#integrations">Integrations</a>
-  <a href="index.html#pricing">Pricing</a>
-  <a href="contact.html">Contact</a>
-  <a href="demo.html">Live Demo →</a>
-</div>
-
-<!-- ── PAGE HERO ── -->
-<div class="page-hero">
-  <p class="section-label mx-auto" style="justify-content:center;"><i class="fa-solid fa-envelope"></i> Get in Touch</p>
-  <h1>Let's Talk</h1>
-  <p>Request a demo, discuss a partnership, or ask anything about the platform. We reply within 24 hours.</p>
-</div>
-
-<!-- ── CONTACT SECTION ── -->
-<section class="section" id="contact">
-  <div class="container">
-    <div class="contact-layout">
-
-      <!-- FORM COLUMN -->
-      <div class="contact-form-card fade-in">
-        <!-- Success state -->
-        <div class="success-state" id="successState">
-          <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
-          <h3 style="font-family:var(--f-head);font-size:1.4rem;font-weight:800;color:var(--c-text1);">Message Sent!</h3>
-          <p style="color:var(--c-text2);">We'll reply within 24 hours. Check your inbox — a confirmation copy is on its way too.</p>
-          <button onclick="resetForm()" class="btn-outline" style="margin-top:.5rem;">Send Another Message</button>
+<!-- ── CONTACT HERO ──────────────────────────────────────────────── -->
+<section class="contact-hero">
+  <div class="contact-hero__glow" aria-hidden="true"></div>
+  <div class="container-xl position-relative">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="contact-hero__badge">
+          <span class="live-dot"></span>
+          We reply within 24 hours
         </div>
+        <h1>
+          Let's Talk<br>
+          <span class="gradient-text">Revenue.</span>
+        </h1>
+        <p>Book a demo, request pricing, or ask anything about CDP Platform. Our team knows restaurant marketing — we'll show you exactly what it would do for your chain.</p>
 
-        <!-- Error state -->
-        <div class="error-state" id="errorState">
-          <div class="error-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
-          <h3 style="font-family:var(--f-head);font-size:1.4rem;font-weight:800;color:var(--c-text1);">Send Failed</h3>
-          <p style="color:var(--c-text2);">Something went wrong. Please try again or email us directly at <a href="mailto:asimesp@gmail.com" style="color:var(--c-primary);">asimesp@gmail.com</a></p>
-          <button onclick="resetForm()" class="btn-outline" style="margin-top:.5rem;">Try Again</button>
+        <div class="contact-stats">
+          <div class="contact-stat">
+            <div class="contact-stat__icon" style="background:rgba(0,194,122,.15);color:#00C27A">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div>
+              <div class="contact-stat__val">&lt; 24h</div>
+              <div class="contact-stat__lbl">Reply time</div>
+            </div>
+          </div>
+          <div class="contact-stat">
+            <div class="contact-stat__icon" style="background:rgba(27,79,255,.2);color:#93B4FF">
+              <i class="fas fa-calendar-check"></i>
+            </div>
+            <div>
+              <div class="contact-stat__val">45 min</div>
+              <div class="contact-stat__lbl">Demo session</div>
+            </div>
+          </div>
+          <div class="contact-stat">
+            <div class="contact-stat__icon" style="background:rgba(255,159,28,.15);color:#FF9F1C">
+              <i class="fas fa-shield-halved"></i>
+            </div>
+            <div>
+              <div class="contact-stat__val">No pressure</div>
+              <div class="contact-stat__lbl">Zero obligation</div>
+            </div>
+          </div>
         </div>
-
-        <!-- Form -->
-        <form class="contact-form" id="contactForm" novalidate>
-          <h3 style="font-family:var(--f-head);font-weight:800;font-size:1.25rem;color:var(--c-text1);margin-bottom:.25rem;">Send a Message</h3>
-          <p style="font-size:.875rem;color:var(--c-text2);margin-bottom:.5rem;">All fields marked * are required.</p>
-
-          <div class="contact-form-row">
-            <div class="form-group">
-              <label class="form-label" for="fullName">Full Name *</label>
-              <input class="form-input" type="text" id="fullName" name="fullName" placeholder="Jane Smith" required autocomplete="name" />
-              <span class="form-error" id="fullNameError"></span>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="email">Email Address *</label>
-              <input class="form-input" type="email" id="email" name="email" placeholder="jane@restaurant.com" required autocomplete="email" />
-              <span class="form-error" id="emailError"></span>
-            </div>
-          </div>
-
-          <div class="contact-form-row">
-            <div class="form-group">
-              <label class="form-label" for="company">Company / Restaurant Chain</label>
-              <input class="form-input" type="text" id="company" name="company" placeholder="Acme Burger Co." autocomplete="organization" />
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="phone">Phone Number</label>
-              <input class="form-input" type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel" />
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="subject">Subject *</label>
-            <select class="form-select" id="subject" name="subject" required>
-              <option value="">— Select a subject —</option>
-              <option value="General Inquiry">General Inquiry</option>
-              <option value="Request Demo">Request Demo</option>
-              <option value="Partnership">Partnership</option>
-              <option value="Technical Support">Technical Support</option>
-              <option value="Pricing">Pricing</option>
-            </select>
-            <span class="form-error" id="subjectError"></span>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="message">Message *</label>
-            <textarea class="form-textarea" id="message" name="message" rows="5" placeholder="Tell us about your restaurant chain, how many locations you have, and what you're hoping to achieve..." required></textarea>
-            <span class="form-error" id="messageError"></span>
-          </div>
-
-          <button type="submit" class="btn-primary contact-submit" id="submitBtn">
-            <i class="fa-solid fa-paper-plane"></i>
-            <span id="submitText">Send Message</span>
-            <span class="spinner" id="submitSpinner" style="display:none;"></span>
-          </button>
-        </form>
       </div>
 
-      <!-- INFO COLUMN -->
-      <div class="contact-info fade-in d2">
-        <div class="info-card">
-          <div class="info-icon" style="background:var(--c-primary-l);color:var(--c-primary);">
-            <i class="fa-solid fa-envelope"></i>
+      <!-- Why reach out cards -->
+      <div class="col-lg-6">
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="reach-card">
+              <div class="reach-card__icon" style="background:rgba(27,79,255,.2);color:#93B4FF">
+                <i class="fas fa-play-circle"></i>
+              </div>
+              <h5>Book a Demo</h5>
+              <p>See CDP working with real restaurant data in a 45-minute live walkthrough.</p>
+            </div>
           </div>
-          <div>
-            <div class="info-label">Email</div>
-            <div class="info-value"><a href="mailto:asimesp@gmail.com" style="color:var(--c-primary);">asimesp@gmail.com</a></div>
-            <div class="info-sub">Direct inbox, monitored daily</div>
+          <div class="col-6">
+            <div class="reach-card">
+              <div class="reach-card__icon" style="background:rgba(0,194,122,.15);color:#00C27A">
+                <i class="fas fa-tag"></i>
+              </div>
+              <h5>Get Pricing</h5>
+              <p>Plans from $199/month. We'll help you find the right fit for your chain size.</p>
+            </div>
           </div>
-        </div>
-
-        <div class="info-card">
-          <div class="info-icon" style="background:var(--c-green-l);color:var(--c-green);">
-            <i class="fa-solid fa-clock"></i>
+          <div class="col-6">
+            <div class="reach-card">
+              <div class="reach-card__icon" style="background:rgba(255,159,28,.15);color:#FF9F1C">
+                <i class="fas fa-handshake"></i>
+              </div>
+              <h5>Explore Partnership</h5>
+              <p>POS resellers and agencies — let's discuss a white-label or referral arrangement.</p>
+            </div>
           </div>
-          <div>
-            <div class="info-label">Response Time</div>
-            <div class="info-value">Within 24 hours</div>
-            <div class="info-sub">Typically much faster</div>
-          </div>
-        </div>
-
-        <div class="info-card">
-          <div class="info-icon" style="background:var(--c-amber-l);color:var(--c-amber);">
-            <i class="fa-solid fa-location-dot"></i>
-          </div>
-          <div>
-            <div class="info-label">Office</div>
-            <div class="info-value">Remote</div>
-            <div class="info-sub">US &amp; Pakistan · Available across timezones</div>
-          </div>
-        </div>
-
-        <div class="info-card">
-          <div class="info-icon" style="background:var(--c-purple-l);color:var(--c-purple);">
-            <i class="fa-solid fa-desktop"></i>
-          </div>
-          <div>
-            <div class="info-label">Live Demo</div>
-            <div class="info-value mono">localhost:5200</div>
-            <div class="info-sub">Full platform, no sign-up needed</div>
-          </div>
-        </div>
-
-        <!-- Quick links -->
-        <div style="padding:1.5rem;background:var(--c-primary-l);border-radius:var(--r-lg);border:1px solid var(--c-primary-m);">
-          <div style="font-family:var(--f-head);font-weight:700;font-size:.875rem;color:var(--c-primary-d);margin-bottom:1rem;">Quick Actions</div>
-          <div style="display:flex;flex-direction:column;gap:.6rem;">
-            <a href="demo.html" class="btn-primary btn-sm" style="justify-content:center;">
-              <i class="fa-solid fa-play"></i> View Live Demo
-            </a>
-            <a href="index.html#pricing" class="btn-outline btn-sm" style="justify-content:center;">
-              <i class="fa-solid fa-tag"></i> See Pricing Plans
-            </a>
+          <div class="col-6">
+            <div class="reach-card">
+              <div class="reach-card__icon" style="background:rgba(124,58,237,.15);color:#C4B5FD">
+                <i class="fas fa-question-circle"></i>
+              </div>
+              <h5>Ask Anything</h5>
+              <p>Technical questions, integration queries, or just curious how it works.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -305,93 +368,288 @@
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
-<footer class="footer">
-  <div class="footer__inner">
-    <div class="footer__top">
-      <div>
-        <div class="footer__logo">
-          <div class="nav__logo-dot"></div>
-          CDP Platform
+<!-- ── CONTACT FORM + SIDEBAR ────────────────────────────────────── -->
+<section class="py-5" style="background:#F4F7FF">
+  <div class="container-xl py-4">
+    <div class="row g-5 align-items-start">
+
+      <!-- LEFT: Form -->
+      <div class="col-lg-7">
+        <div class="contact-form-wrap">
+          <div class="contact-form-header">
+            <h2><i class="fas fa-envelope-open-text me-2"></i>Send Us a Message</h2>
+            <p>We'll get back to you within one business day. Usually much faster.</p>
+          </div>
+          <div class="contact-form-body">
+
+            <!-- Error banner -->
+            <div class="cdp-error-banner" id="errorBanner">
+              <i class="fas fa-exclamation-circle me-2"></i>
+              <span id="errorBannerMsg">Something went wrong. Please try again.</span>
+            </div>
+
+            <!-- Form -->
+            <form id="contactForm" novalidate>
+              <div class="row g-3">
+
+                <!-- Name + Email -->
+                <div class="col-md-6">
+                  <label class="cdp-label" for="fullName">Full Name <span class="req">*</span></label>
+                  <input type="text" id="fullName" class="cdp-input" placeholder="Jane Smith" autocomplete="name"/>
+                  <span class="cdp-error" id="fullNameError"></span>
+                </div>
+                <div class="col-md-6">
+                  <label class="cdp-label" for="email">Email Address <span class="req">*</span></label>
+                  <input type="email" id="email" class="cdp-input" placeholder="jane@restaurant.com" autocomplete="email"/>
+                  <span class="cdp-error" id="emailError"></span>
+                </div>
+
+                <!-- Company + Phone -->
+                <div class="col-md-6">
+                  <label class="cdp-label" for="company">Company / Restaurant Chain</label>
+                  <input type="text" id="company" class="cdp-input" placeholder="Acme Burger Co." autocomplete="organization"/>
+                </div>
+                <div class="col-md-6">
+                  <label class="cdp-label" for="phone">Phone Number</label>
+                  <input type="tel" id="phone" class="cdp-input" placeholder="+1 (555) 000-0000" autocomplete="tel"/>
+                </div>
+
+                <!-- Subject -->
+                <div class="col-12">
+                  <label class="cdp-label" for="subject">What can we help you with? <span class="req">*</span></label>
+                  <select id="subject" class="cdp-input">
+                    <option value="">— Select a topic —</option>
+                    <option value="Request a Demo">Request a Demo</option>
+                    <option value="Pricing & Plans">Pricing &amp; Plans</option>
+                    <option value="90-Day Pilot">90-Day Pilot Program</option>
+                    <option value="Partnership / Reseller">Partnership / Reseller</option>
+                    <option value="Technical Question">Technical Question</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                  </select>
+                  <span class="cdp-error" id="subjectError"></span>
+                </div>
+
+                <!-- Message -->
+                <div class="col-12">
+                  <label class="cdp-label" for="message">Message <span class="req">*</span></label>
+                  <textarea id="message" class="cdp-input" rows="5"
+                    placeholder="Tell us about your restaurant chain — how many locations, what marketing challenges you're facing, and what you're hoping to achieve..."></textarea>
+                  <span class="cdp-error" id="messageError"></span>
+                </div>
+
+                <!-- Submit -->
+                <div class="col-12">
+                  <button type="submit" class="cdp-submit" id="submitBtn">
+                    <span id="submitText"><i class="fas fa-paper-plane me-1"></i> Send Message</span>
+                    <span class="cdp-spinner" id="submitSpinner"></span>
+                  </button>
+                  <p class="text-center mt-2" style="font-size:.75rem;color:#7A92BC">
+                    <i class="fas fa-lock me-1"></i> Your information is kept confidential and never shared.
+                  </p>
+                </div>
+              </div>
+            </form>
+
+            <!-- Success state -->
+            <div class="cdp-success" id="successState">
+              <div class="cdp-success__icon"><i class="fas fa-check"></i></div>
+              <h3>Message Sent!</h3>
+              <p>Thanks for reaching out. We've received your message and will reply to your email within one business day — usually much sooner.</p>
+              <div class="mt-3 d-flex gap-2 justify-content-center">
+                <a href="demo.html" class="btn btn-primary btn-sm px-4">
+                  <i class="fas fa-play me-1"></i> View Live Demo
+                </a>
+                <button onclick="resetForm()" class="btn btn-outline-secondary btn-sm px-4">
+                  Send Another
+                </button>
+              </div>
+            </div>
+
+          </div>
         </div>
-        <p class="footer__tagline">The modern Customer Data Platform for restaurant chains.</p>
       </div>
-      <div>
-        <div class="footer__col-title">Platform</div>
-        <ul class="footer__links">
-          <li><a href="index.html#features">Features</a></li>
-          <li><a href="index.html#integrations">Integrations</a></li>
-          <li><a href="index.html#pricing">Pricing</a></li>
-          <li><a href="index.html#architecture">Security</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__col-title">Demo</div>
-        <ul class="footer__links">
-          <li><a href="demo.html">Live Demo</a></li>
-          <li><a href="demo.html">Video Tour</a></li>
-          <li><a href="demo.html">Documentation</a></li>
-          <li><a href="index.html#competitive">API</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer__col-title">Resources</div>
-        <ul class="footer__links">
-          <li><a href="contact.html">Blog</a></li>
-          <li><a href="contact.html">Help Center</a></li>
-          <li><a href="contact.html">Case Studies</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+
+      <!-- RIGHT: Info sidebar -->
+      <div class="col-lg-5">
+
+        <!-- Contact info card -->
+        <div class="info-card mb-4">
+          <div class="info-card__header">
+            <h3>Contact Information</h3>
+            <p>We're a remote team across the US and Pakistan — available across all timezones.</p>
+          </div>
+          <div class="info-items">
+            <div class="info-item">
+              <div class="info-icon" style="background:#EBF0FF;color:#1B4FFF">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <div class="info-item__lbl">Email</div>
+                <div class="info-item__val">asimesp@gmail.com</div>
+                <div class="info-item__sub">Direct inbox, monitored daily</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon" style="background:#D1FAE5;color:#00C27A">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div>
+                <div class="info-item__lbl">Response Time</div>
+                <div class="info-item__val">Within 24 hours</div>
+                <div class="info-item__sub">Typically much faster</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon" style="background:#FFF3DC;color:#FF9F1C">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <div class="info-item__lbl">Office</div>
+                <div class="info-item__val">Remote</div>
+                <div class="info-item__sub">US &amp; Pakistan · All timezones</div>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon" style="background:#EDE9FE;color:#7C3AED">
+                <i class="fas fa-desktop"></i>
+              </div>
+              <div>
+                <div class="info-item__lbl">Live Demo</div>
+                <div class="info-item__val">Available now</div>
+                <div class="info-item__sub">Pre-loaded with restaurant data</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Book demo CTA card -->
+        <div class="p-4 rounded-4 text-center"
+             style="background:linear-gradient(135deg,#1B4FFF,#0F38CC);box-shadow:0 8px 32px rgba(27,79,255,.3)">
+          <div style="font-size:2rem;margin-bottom:.5rem">🚀</div>
+          <h4 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#fff;margin-bottom:.5rem">
+            Skip the Form
+          </h4>
+          <p style="font-size:.85rem;color:rgba(255,255,255,.75);margin-bottom:1.25rem">
+            See CDP working live with real restaurant data. 45 minutes. No obligation.
+          </p>
+          <a href="demo.html" class="btn btn-light fw-700 px-4"
+             style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:#1B4FFF">
+            <i class="fas fa-play-circle me-2"></i>View Live Demo
+          </a>
+        </div>
+
       </div>
     </div>
-    <div class="footer__bottom">
-      <span>&copy; 2026 CDP Platform — Customer Data Platform. All rights reserved.</span>
-      <div class="footer__pills">
-        <span class="footer__pill">.NET 8</span>
-        <span class="footer__pill">PostgreSQL</span>
-        <span class="footer__pill">Docker</span>
+  </div>
+</section>
+
+<!-- ── FOOTER (identical to index.html) ─────────────────────────── -->
+<footer style="background:#050912;padding:4rem 0 0">
+  <div class="container-xl">
+    <div class="row g-4 pb-4" style="border-bottom:1px solid rgba(255,255,255,.07)">
+      <div class="col-lg-4">
+        <a class="d-flex align-items-center gap-2 text-decoration-none mb-3" href="index.html">
+          <i class="fas fa-bullseye" style="color:#1B4FFF;font-size:1.1rem"></i>
+          <span style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#fff">CDP Platform</span>
+        </a>
+        <p style="font-size:.84rem;color:#3D5280;max-width:280px;line-height:1.7">
+          Restaurant guest marketing that pays for itself. Better data. More visits. More revenue.
+        </p>
+        <div class="d-flex gap-3 mt-3">
+          <a href="https://github.com/masimriaz/cdp-portfolio" target="_blank" rel="noopener"
+             style="color:#3D5280;font-size:1.1rem;transition:color .15s"
+             onmouseover="this.style.color='#1B4FFF'" onmouseout="this.style.color='#3D5280'">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:asimesp@gmail.com"
+             style="color:#3D5280;font-size:1.1rem;transition:color .15s"
+             onmouseover="this.style.color='#1B4FFF'" onmouseout="this.style.color='#3D5280'">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#3D5280;margin-bottom:.75rem">Platform</div>
+        <a href="index.html#platform" style="display:block;font-size:.84rem;color:#3D5280;text-decoration:none;margin-bottom:.5rem;transition:color .15s" onmouseover="this.style.color='#93B4FF'" onmouseout="this.style.color='#3D5280'">How It Works</a>
+        <a href="index.html#features" style="display:block;font-size:.84rem;color:#3D5280;text-decoration:none;margin-bottom:.5rem" onmouseover="this.style.color='#93B4FF'" onmouseout="this.style.color='#3D5280'">Features</a>
+        <a href="index.html#pricing" style="display:block;font-size:.84rem;color:#3D5280;text-decoration:none;margin-bottom:.5rem" onmouseover="this.style.color='#93B4FF'" onmouseout="this.style.color='#3D5280'">Pricing</a>
+        <a href="demo.html" style="display:block;font-size:.84rem;color:#3D5280;text-decoration:none" onmouseover="this.style.color='#93B4FF'" onmouseout="this.style.color='#3D5280'">Book Demo</a>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#3D5280;margin-bottom:.75rem">Company</div>
+        <a href="contact.html" style="display:block;font-size:.84rem;color:#93B4FF;text-decoration:none;margin-bottom:.5rem">Contact</a>
+        <a href="demo.html" style="display:block;font-size:.84rem;color:#3D5280;text-decoration:none;margin-bottom:.5rem" onmouseover="this.style.color='#93B4FF'" onmouseout="this.style.color='#3D5280'">Demo</a>
+        <a href="https://github.com/masimriaz/cdp-portfolio" target="_blank" style="display:block;font-size:.84rem;color:#3D5280;text-decoration:none" onmouseover="this.style.color='#93B4FF'" onmouseout="this.style.color='#3D5280'">GitHub</a>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#3D5280;margin-bottom:.75rem">Ready to Start?</div>
+        <p style="font-size:.84rem;color:#3D5280;line-height:1.7;margin-bottom:.875rem">See the 3.7× ROI model live — book a 45-minute walkthrough with your own guest data numbers.</p>
+        <a href="contact.html" class="btn btn-primary btn-sm px-4">
+          <i class="fas fa-calendar-check me-2"></i>Book a Demo
+        </a>
+      </div>
+    </div>
+    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 py-3"
+         style="font-size:.78rem;color:#3D5280">
+      <span>&copy; 2026 CDP Platform — Restaurant Guest Marketing. All rights reserved.</span>
+      <div class="d-flex gap-3">
+        <a href="#" style="color:#3D5280;text-decoration:none">Privacy Policy</a>
+        <a href="#" style="color:#3D5280;text-decoration:none">Terms</a>
+        <a href="#" style="color:#3D5280;text-decoration:none">GDPR</a>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- EmailJS -->
+<!-- ── Scripts ───────────────────────────────────────────────────── -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script src="js/main.js"></script>
+
 <script>
 (function () {
   'use strict';
 
-  // ── EmailJS config ──
+  /* ── EmailJS config ── */
   var SERVICE_ID  = 'service_y9lg90x';
   var TEMPLATE_ID = 'template_t203gdf';
   var PUBLIC_KEY  = 'QgTa6oe27DHJlhdDQ';
 
-  // Init EmailJS
-  if (typeof emailjs !== 'undefined') {
-    emailjs.init({ publicKey: PUBLIC_KEY });
-  }
+  emailjs.init({ publicKey: PUBLIC_KEY });
 
-  var form        = document.getElementById('contactForm');
-  var submitBtn   = document.getElementById('submitBtn');
-  var submitText  = document.getElementById('submitText');
-  var spinner     = document.getElementById('submitSpinner');
+  /* ── Navbar scroll ── */
+  var nav = document.getElementById('cdpNav');
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 60) {
+      nav.style.background = 'rgba(8,12,20,.97)';
+      nav.style.backdropFilter = 'blur(20px)';
+      nav.style.boxShadow = '0 1px 0 rgba(255,255,255,.06)';
+    } else {
+      nav.style.background = '';
+      nav.style.backdropFilter = '';
+      nav.style.boxShadow = '';
+    }
+  }, { passive: true });
+
+  /* ── Form elements ── */
+  var form         = document.getElementById('contactForm');
+  var submitBtn    = document.getElementById('submitBtn');
+  var submitText   = document.getElementById('submitText');
+  var spinner      = document.getElementById('submitSpinner');
   var successState = document.getElementById('successState');
-  var errorState  = document.getElementById('errorState');
+  var errorBanner  = document.getElementById('errorBanner');
+  var errorMsg     = document.getElementById('errorBannerMsg');
 
-  // ── Validation helpers ──
-  function validateEmail(v) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
-  }
+  /* ── Helpers ── */
+  function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); }
 
-  function setError(fieldId, errorId, msg) {
-    var field = document.getElementById(fieldId);
+  function setFieldError(inputId, errorId, msg) {
+    var input = document.getElementById(inputId);
     var err   = document.getElementById(errorId);
     if (msg) {
-      field.classList.add('error');
+      input.classList.add('is-invalid');
       err.textContent = msg;
     } else {
-      field.classList.remove('error');
+      input.classList.remove('is-invalid');
       err.textContent = '';
     }
     return !msg;
@@ -402,90 +660,64 @@
     var email   = document.getElementById('email').value.trim();
     var subject = document.getElementById('subject').value;
     var message = document.getElementById('message').value.trim();
-
     var ok = true;
-    ok = setError('fullName', 'fullNameError', name ? '' : 'Full name is required.') && ok;
-    ok = setError('email', 'emailError', !email ? 'Email is required.' : !validateEmail(email) ? 'Enter a valid email address.' : '') && ok;
-    ok = setError('subject', 'subjectError', subject ? '' : 'Please select a subject.') && ok;
-    ok = setError('message', 'messageError', message.length >= 10 ? '' : 'Message must be at least 10 characters.') && ok;
+    ok = setFieldError('fullName', 'fullNameError', name ? '' : 'Please enter your full name.') && ok;
+    ok = setFieldError('email',    'emailError',    !email ? 'Email address is required.' : !isEmail(email) ? 'Please enter a valid email address.' : '') && ok;
+    ok = setFieldError('subject',  'subjectError',  subject ? '' : 'Please select a topic.') && ok;
+    ok = setFieldError('message',  'messageError',  message.length >= 10 ? '' : 'Message must be at least 10 characters.') && ok;
     return ok;
   }
 
-  // ── Real-time validation on blur ──
-  ['fullName', 'email', 'message'].forEach(function (id) {
-    var field = document.getElementById(id);
-    if (field) field.addEventListener('blur', validate);
+  /* ── Real-time blur validation ── */
+  ['fullName','email','message'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('blur', validate);
   });
 
-  // ── Form submit ──
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!validate()) return;
+  /* ── Submit ── */
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errorBanner.style.display = 'none';
+    if (!validate()) return;
 
-      // Loading state
-      submitBtn.disabled = true;
-      submitText.textContent = 'Sending…';
-      spinner.style.display = 'inline-block';
+    /* Loading state */
+    submitBtn.disabled = true;
+    submitText.innerHTML = 'Sending&hellip;';
+    spinner.style.display = 'inline-block';
 
-      var params = {
-        from_name:  document.getElementById('fullName').value.trim(),
-        from_email: document.getElementById('email').value.trim(),
-        company:    document.getElementById('company').value.trim() || 'Not provided',
-        phone:      document.getElementById('phone').value.trim() || 'Not provided',
-        subject:    document.getElementById('subject').value,
-        message:    document.getElementById('message').value.trim(),
-        to_email:   'asimesp@gmail.com'
-      };
+    var params = {
+      from_name:  document.getElementById('fullName').value.trim(),
+      from_email: document.getElementById('email').value.trim(),
+      company:    document.getElementById('company').value.trim() || 'Not provided',
+      phone:      document.getElementById('phone').value.trim()   || 'Not provided',
+      subject:    document.getElementById('subject').value,
+      message:    document.getElementById('message').value.trim(),
+      to_email:   'asimesp@gmail.com'
+    };
 
-      if (typeof emailjs === 'undefined') {
-        // EmailJS not configured — show instructions
-        console.warn('EmailJS not initialized. Configure SERVICE_ID, TEMPLATE_ID, and PUBLIC_KEY.');
-        showError();
-        return;
-      }
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, params)
+      .then(function () {
+        form.style.display = 'none';
+        successState.style.display = 'block';
+      })
+      .catch(function (err) {
+        errorMsg.textContent = 'Failed to send: ' + (err.text || 'Please try again or email asimesp@gmail.com directly.');
+        errorBanner.style.display = 'flex';
+        submitBtn.disabled = false;
+        submitText.innerHTML = '<i class="fas fa-paper-plane me-1"></i> Send Message';
+        spinner.style.display = 'none';
+      });
+  });
 
-      emailjs.send(SERVICE_ID, TEMPLATE_ID, params)
-        .then(function () {
-          showSuccess();
-        })
-        .catch(function (err) {
-          console.error('EmailJS error:', err);
-          showError();
-        });
-    });
-  }
-
-  function showSuccess() {
-    form.style.display = 'none';
-    successState.style.display = 'flex';
-    errorState.style.display = 'none';
-    resetButtonState();
-    window.scrollTo({ top: document.getElementById('contact').offsetTop - 80, behavior: 'smooth' });
-  }
-
-  function showError() {
-    errorState.style.display = 'flex';
-    successState.style.display = 'none';
-    resetButtonState();
-  }
-
-  function resetButtonState() {
-    submitBtn.disabled = false;
-    submitText.textContent = 'Send Message';
-    spinner.style.display = 'none';
-  }
-
+  /* ── Reset form ── */
   window.resetForm = function () {
     form.reset();
-    form.style.display = 'flex';
+    form.style.display = 'block';
     successState.style.display = 'none';
-    errorState.style.display = 'none';
-    // Clear all error states
-    document.querySelectorAll('.form-error').forEach(function (el) { el.textContent = ''; });
-    document.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(function (el) {
-      el.classList.remove('error');
-    });
+    errorBanner.style.display = 'none';
+    submitBtn.disabled = false;
+    submitText.innerHTML = '<i class="fas fa-paper-plane me-1"></i> Send Message';
+    spinner.style.display = 'none';
   };
 
 })();
