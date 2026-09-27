@@ -1176,3 +1176,26 @@ a { text-decoration: none; }
   .cdp-nav, footer, .demo-cta { display: none; }
   body { font-size: 11pt; }
 }
+
+
+/* ================================================================
+   LIFECYCLE FLOW DIAGRAM
+   ================================================================ */
+.cdp-lifecycle-flow{display:flex;align-items:stretch;gap:.5rem;overflow-x:auto;padding-bottom:1rem;-webkit-overflow-scrolling:touch}
+.cdp-lc-card{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:16px;padding:1.25rem 1rem;min-width:160px;flex:1;display:flex;flex-direction:column;gap:.35rem;transition:background .2s,transform .2s}
+.cdp-lc-card:hover{background:rgba(255,255,255,.09);transform:translateY(-4px)}
+.cdp-lc-card--featured{background:rgba(0,194,122,.08);border-color:rgba(0,194,122,.3)}
+.cdp-lc-arrow{display:flex;align-items:center;padding:0 .375rem;color:rgba(255,255,255,.2);font-size:.8rem;flex-shrink:0}
+.cdp-lc-num{font-size:.6rem;font-weight:800;letter-spacing:.12em;color:rgba(255,255,255,.3)}
+.cdp-lc-icon{width:38px;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.85rem;margin:.25rem 0}
+.cdp-lc-stage{font-family:var(--f-head);font-weight:800;font-size:.85rem;color:#fff}
+.cdp-lc-desc{font-size:.7rem;color:rgba(255,255,255,.4)}
+.cdp-lc-divider{height:1px;background:rgba(255,255,255,.08);margin:.5rem 0}
+.cdp-lc-action{font-size:.74rem;color:rgba(255,255,255,.72);line-height:1.5;flex:1}
+.cdp-lc-tool{display:inline-flex;align-items:center;background:rgba(27,79,255,.2);border:1px solid rgba(27,79,255,.3);color:#93B4FF;font-size:.63rem;font-weight:700;padding:2px 8px;border-radius:999px;margin-top:.2rem;width:fit-content}
+.cdp-lc-uplift{font-family:var(--f-head);font-size:.76rem;font-weight:800;color:#00C27A}
+.cdp-lc-legend{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.08)}
+.cdp-lc-legend-item{display:flex;align-items:center;gap:.5rem;font-size:.76rem;color:rgba(255,255,255,.5)}
+.cdp-lc-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+@media(max-width:767.98px){.cdp-lc-card{min-width:140px;padding:1rem .875rem}}
+@media(max-width:575.98px){.cdp-lifecycle-flow{flex-direction:column;overflow-x:visible}.cdp-lc-arrow{transform:rotate(90deg);align-self:center}.cdp-lc-card{min-width:unset}}
