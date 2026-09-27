@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="See CDP Platform live — real restaurant data, real AI, three revenue scenarios. No sign-up required."/>
   <title>Live Demo — CDP Platform</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="canonical" href="https://masimriaz.github.io/cdp-portfolio/demo.html"/>
+  <meta property="og:title"       content="Live Demo — CDP Platform"/>
+  <meta property="og:description" content="See CDP working with real restaurant data. No sign-up required."/>
+  <meta name="twitter:card"       content="summary"/>
 
   <!-- 1. Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet"/>
@@ -578,35 +583,20 @@
 
 <!-- ── Scripts ───────────────────────────────────────────────────── -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
 <script>
 (function(){
   'use strict';
 
-  /* Navbar scroll */
-  var nav = document.getElementById('cdpNav');
-  window.addEventListener('scroll', function(){
-    if (window.scrollY > 60){
-      nav.style.background = 'rgba(8,12,20,.97)';
-      nav.style.backdropFilter = 'blur(20px)';
-      nav.style.boxShadow = '0 1px 0 rgba(255,255,255,.06)';
-    } else {
-      nav.style.background = '';
-      nav.style.backdropFilter = '';
-      nav.style.boxShadow = '';
-    }
-  }, {passive:true});
-
-  /* Accordion */
+  /* Accordion toggle */
   window.toggleAcc = function(id){
     var item = document.getElementById(id);
     var isOpen = item.classList.contains('open');
-    /* Close all */
     document.querySelectorAll('.cdp-acc-item').forEach(function(el){ el.classList.remove('open'); });
-    /* Open clicked if it was closed */
     if (!isOpen) item.classList.add('open');
   };
 
-  /* Copy to clipboard */
+  /* Copy credentials to clipboard */
   window.copyText = function(text, btn){
     navigator.clipboard && navigator.clipboard.writeText(text).then(function(){
       var icon = btn.querySelector('i');
@@ -615,12 +605,6 @@
       setTimeout(function(){ icon.className = 'fas fa-copy'; icon.style.color = ''; }, 1500);
     });
   };
-
-  /* Fade-in on scroll */
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
-  }, {threshold: 0.1});
-  document.querySelectorAll('.fade-in,.fade-up').forEach(function(el){ obs.observe(el); });
 
 })();
 </script>
