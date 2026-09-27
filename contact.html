@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<!--
+  EMAIL SETUP REQUIRED:
+  1. Create free account at https://www.emailjs.com
+  2. Add Email Service (Gmail recommended)
+  3. Create Email Template with variables: from_name, from_email, company, phone, subject, message
+  4. Replace YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, YOUR_PUBLIC_KEY below
+  5. Set reply-to = {{from_email}} in template settings
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact CDP Platform — Get in touch to request a demo, discuss pricing, or explore partnership opportunities." />
+  <title>Contact — CDP Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr;
+      gap: 3.5rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+    .contact-form-card {
+      background: var(--c-white);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .contact-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .contact-submit {
+      margin-top: .5rem;
+      width: 100%;
+      justify-content: center;
+      padding: .875rem 1.75rem;
+      font-size: 1rem;
+    }
+    .contact-submit:disabled {
+      opacity: .7;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .info-card {
+      background: var(--c-white);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      padding: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .info-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .info-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .info-label {
+      font-size: .72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--c-slate);
+      margin-bottom: .25rem;
+    }
+    .info-value {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--c-text1);
+    }
+    .info-sub {
+      font-size: .8rem;
+      color: var(--c-text2);
+      margin-top: .15rem;
+    }
+    .success-state, .error-state {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 3rem 2rem;
+      gap: 1rem;
+    }
+    .success-state { color: #065F46; }
+    .error-state { color: #991B1B; }
+    .success-icon, .error-icon {
+      font-size: 3.5rem;
+      margin-bottom: .5rem;
+    }
+    .success-icon { color: var(--c-green); }
+    .error-icon { color: var(--c-red); }
+    @media (max-width: 768px) {
+      .contact-layout { grid-template-columns: 1fr; }
+      .contact-form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav scrolled" id="mainNav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-dot"></span>
+      CDP Platform
+    </a>
+    <div class="nav__links">
+      <a href="index.html#pillars">Platform</a>
+      <a href="demo.html">Demo</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#integrations">Integrations</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="https://github.com" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+      <a href="demo.html" class="nav__cta">Live Demo</a>
+    </div>
+    <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile overlay -->
+<div class="nav__mobile-overlay">
+  <a href="index.html#pillars">Platform</a>
+  <a href="demo.html">Demo</a>
+  <a href="index.html#features">Features</a>
+  <a href="index.html#integrations">Integrations</a>
+  <a href="index.html#pricing">Pricing</a>
+  <a href="contact.html">Contact</a>
+  <a href="demo.html">Live Demo →</a>
+</div>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+  <p class="section-label mx-auto" style="justify-content:center;"><i class="fa-solid fa-envelope"></i> Get in Touch</p>
+  <h1>Let's Talk</h1>
+  <p>Request a demo, discuss a partnership, or ask anything about the platform. We reply within 24 hours.</p>
+</div>
+
+<!-- ── CONTACT SECTION ── -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-layout">
+
+      <!-- FORM COLUMN -->
+      <div class="contact-form-card fade-in">
+        <!-- Success state -->
+        <div class="success-state" id="successState">
+          <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+          <h3 style="font-family:var(--f-head);font-size:1.4rem;font-weight:800;color:var(--c-text1);">Message Sent!</h3>
+          <p style="color:var(--c-text2);">We'll reply within 24 hours. Check your inbox — a confirmation copy is on its way too.</p>
+          <button onclick="resetForm()" class="btn-outline" style="margin-top:.5rem;">Send Another Message</button>
+        </div>
+
+        <!-- Error state -->
+        <div class="error-state" id="errorState">
+          <div class="error-icon"><i class="fa-solid fa-circle-exclamation"></i></div>
+          <h3 style="font-family:var(--f-head);font-size:1.4rem;font-weight:800;color:var(--c-text1);">Send Failed</h3>
+          <p style="color:var(--c-text2);">Something went wrong. Please try again or email us directly at <a href="mailto:asimesp@gmail.com" style="color:var(--c-primary);">asimesp@gmail.com</a></p>
+          <button onclick="resetForm()" class="btn-outline" style="margin-top:.5rem;">Try Again</button>
+        </div>
+
+        <!-- Form -->
+        <form class="contact-form" id="contactForm" novalidate>
+          <h3 style="font-family:var(--f-head);font-weight:800;font-size:1.25rem;color:var(--c-text1);margin-bottom:.25rem;">Send a Message</h3>
+          <p style="font-size:.875rem;color:var(--c-text2);margin-bottom:.5rem;">All fields marked * are required.</p>
+
+          <div class="contact-form-row">
+            <div class="form-group">
+              <label class="form-label" for="fullName">Full Name *</label>
+              <input class="form-input" type="text" id="fullName" name="fullName" placeholder="Jane Smith" required autocomplete="name" />
+              <span class="form-error" id="fullNameError"></span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address *</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="jane@restaurant.com" required autocomplete="email" />
+              <span class="form-error" id="emailError"></span>
+            </div>
+          </div>
+
+          <div class="contact-form-row">
+            <div class="form-group">
+              <label class="form-label" for="company">Company / Restaurant Chain</label>
+              <input class="form-input" type="text" id="company" name="company" placeholder="Acme Burger Co." autocomplete="organization" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone Number</label>
+              <input class="form-input" type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="subject">Subject *</label>
+            <select class="form-select" id="subject" name="subject" required>
+              <option value="">— Select a subject —</option>
+              <option value="General Inquiry">General Inquiry</option>
+              <option value="Request Demo">Request Demo</option>
+              <option value="Partnership">Partnership</option>
+              <option value="Technical Support">Technical Support</option>
+              <option value="Pricing">Pricing</option>
+            </select>
+            <span class="form-error" id="subjectError"></span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">Message *</label>
+            <textarea class="form-textarea" id="message" name="message" rows="5" placeholder="Tell us about your restaurant chain, how many locations you have, and what you're hoping to achieve..." required></textarea>
+            <span class="form-error" id="messageError"></span>
+          </div>
+
+          <button type="submit" class="btn-primary contact-submit" id="submitBtn">
+            <i class="fa-solid fa-paper-plane"></i>
+            <span id="submitText">Send Message</span>
+            <span class="spinner" id="submitSpinner" style="display:none;"></span>
+          </button>
+        </form>
+      </div>
+
+      <!-- INFO COLUMN -->
+      <div class="contact-info fade-in d2">
+        <div class="info-card">
+          <div class="info-icon" style="background:var(--c-primary-l);color:var(--c-primary);">
+            <i class="fa-solid fa-envelope"></i>
+          </div>
+          <div>
+            <div class="info-label">Email</div>
+            <div class="info-value"><a href="mailto:asimesp@gmail.com" style="color:var(--c-primary);">asimesp@gmail.com</a></div>
+            <div class="info-sub">Direct inbox, monitored daily</div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon" style="background:var(--c-green-l);color:var(--c-green);">
+            <i class="fa-solid fa-clock"></i>
+          </div>
+          <div>
+            <div class="info-label">Response Time</div>
+            <div class="info-value">Within 24 hours</div>
+            <div class="info-sub">Typically much faster</div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon" style="background:var(--c-amber-l);color:var(--c-amber);">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div>
+            <div class="info-label">Office</div>
+            <div class="info-value">Remote</div>
+            <div class="info-sub">US &amp; Pakistan · Available across timezones</div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon" style="background:var(--c-purple-l);color:var(--c-purple);">
+            <i class="fa-solid fa-desktop"></i>
+          </div>
+          <div>
+            <div class="info-label">Live Demo</div>
+            <div class="info-value mono">localhost:5200</div>
+            <div class="info-sub">Full platform, no sign-up needed</div>
+          </div>
+        </div>
+
+        <!-- Quick links -->
+        <div style="padding:1.5rem;background:var(--c-primary-l);border-radius:var(--r-lg);border:1px solid var(--c-primary-m);">
+          <div style="font-family:var(--f-head);font-weight:700;font-size:.875rem;color:var(--c-primary-d);margin-bottom:1rem;">Quick Actions</div>
+          <div style="display:flex;flex-direction:column;gap:.6rem;">
+            <a href="demo.html" class="btn-primary btn-sm" style="justify-content:center;">
+              <i class="fa-solid fa-play"></i> View Live Demo
+            </a>
+            <a href="index.html#pricing" class="btn-outline btn-sm" style="justify-content:center;">
+              <i class="fa-solid fa-tag"></i> See Pricing Plans
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div>
+        <div class="footer__logo">
+          <div class="nav__logo-dot"></div>
+          CDP Platform
+        </div>
+        <p class="footer__tagline">The modern Customer Data Platform for restaurant chains.</p>
+      </div>
+      <div>
+        <div class="footer__col-title">Platform</div>
+        <ul class="footer__links">
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#integrations">Integrations</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="index.html#architecture">Security</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Demo</div>
+        <ul class="footer__links">
+          <li><a href="demo.html">Live Demo</a></li>
+          <li><a href="demo.html">Video Tour</a></li>
+          <li><a href="demo.html">Documentation</a></li>
+          <li><a href="index.html#competitive">API</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Resources</div>
+        <ul class="footer__links">
+          <li><a href="contact.html">Blog</a></li>
+          <li><a href="contact.html">Help Center</a></li>
+          <li><a href="contact.html">Case Studies</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 CDP Platform — Customer Data Platform. All rights reserved.</span>
+      <div class="footer__pills">
+        <span class="footer__pill">.NET 8</span>
+        <span class="footer__pill">PostgreSQL</span>
+        <span class="footer__pill">Docker</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  // ── EmailJS config — REPLACE THESE ──
+  var SERVICE_ID  = 'YOUR_SERVICE_ID';
+  var TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+  var PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
+
+  // Init EmailJS
+  if (typeof emailjs !== 'undefined') {
+    emailjs.init({ publicKey: PUBLIC_KEY });
+  }
+
+  var form        = document.getElementById('contactForm');
+  var submitBtn   = document.getElementById('submitBtn');
+  var submitText  = document.getElementById('submitText');
+  var spinner     = document.getElementById('submitSpinner');
+  var successState = document.getElementById('successState');
+  var errorState  = document.getElementById('errorState');
+
+  // ── Validation helpers ──
+  function validateEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+  }
+
+  function setError(fieldId, errorId, msg) {
+    var field = document.getElementById(fieldId);
+    var err   = document.getElementById(errorId);
+    if (msg) {
+      field.classList.add('error');
+      err.textContent = msg;
+    } else {
+      field.classList.remove('error');
+      err.textContent = '';
+    }
+    return !msg;
+  }
+
+  function validate() {
+    var name    = document.getElementById('fullName').value.trim();
+    var email   = document.getElementById('email').value.trim();
+    var subject = document.getElementById('subject').value;
+    var message = document.getElementById('message').value.trim();
+
+    var ok = true;
+    ok = setError('fullName', 'fullNameError', name ? '' : 'Full name is required.') && ok;
+    ok = setError('email', 'emailError', !email ? 'Email is required.' : !validateEmail(email) ? 'Enter a valid email address.' : '') && ok;
+    ok = setError('subject', 'subjectError', subject ? '' : 'Please select a subject.') && ok;
+    ok = setError('message', 'messageError', message.length >= 10 ? '' : 'Message must be at least 10 characters.') && ok;
+    return ok;
+  }
+
+  // ── Real-time validation on blur ──
+  ['fullName', 'email', 'message'].forEach(function (id) {
+    var field = document.getElementById(id);
+    if (field) field.addEventListener('blur', validate);
+  });
+
+  // ── Form submit ──
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!validate()) return;
+
+      // Loading state
+      submitBtn.disabled = true;
+      submitText.textContent = 'Sending…';
+      spinner.style.display = 'inline-block';
+
+      var params = {
+        from_name:  document.getElementById('fullName').value.trim(),
+        from_email: document.getElementById('email').value.trim(),
+        company:    document.getElementById('company').value.trim() || 'Not provided',
+        phone:      document.getElementById('phone').value.trim() || 'Not provided',
+        subject:    document.getElementById('subject').value,
+        message:    document.getElementById('message').value.trim(),
+        to_email:   'asimesp@gmail.com'
+      };
+
+      if (typeof emailjs === 'undefined') {
+        // EmailJS not configured — show instructions
+        console.warn('EmailJS not initialized. Configure SERVICE_ID, TEMPLATE_ID, and PUBLIC_KEY.');
+        showError();
+        return;
+      }
+
+      emailjs.send(SERVICE_ID, TEMPLATE_ID, params)
+        .then(function () {
+          showSuccess();
+        })
+        .catch(function (err) {
+          console.error('EmailJS error:', err);
+          showError();
+        });
+    });
+  }
+
+  function showSuccess() {
+    form.style.display = 'none';
+    successState.style.display = 'flex';
+    errorState.style.display = 'none';
+    resetButtonState();
+    window.scrollTo({ top: document.getElementById('contact').offsetTop - 80, behavior: 'smooth' });
+  }
+
+  function showError() {
+    errorState.style.display = 'flex';
+    successState.style.display = 'none';
+    resetButtonState();
+  }
+
+  function resetButtonState() {
+    submitBtn.disabled = false;
+    submitText.textContent = 'Send Message';
+    spinner.style.display = 'none';
+  }
+
+  window.resetForm = function () {
+    form.reset();
+    form.style.display = 'flex';
+    successState.style.display = 'none';
+    errorState.style.display = 'none';
+    // Clear all error states
+    document.querySelectorAll('.form-error').forEach(function (el) { el.textContent = ''; });
+    document.querySelectorAll('.form-input, .form-select, .form-textarea').forEach(function (el) {
+      el.classList.remove('error');
+    });
+  };
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CDP Platform — Restaurant Guest Marketing CDP. Unify guest data, segment audiences, and run campaigns that bring guests back and grow revenue." />
+  <title>CDP Platform — Restaurant Guest Marketing</title>
+
+  <!-- 1. Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <!-- 2. Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- 3. Font Awesome 6.4 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <!-- 4. Custom CSS LAST -->
+  <link rel="stylesheet" href="css/main.css"/>
+</head>
+
+<body>
+
+<!-- ================================================================
+     1. NAVBAR
+     ================================================================ -->
+<nav class="navbar navbar-expand-lg fixed-top cdp-nav">
+  <div class="container-xl">
+    <!-- Brand -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <span class="brand-dot"></span>
+      <i class="fas fa-bullseye text-primary me-1"></i>
+      CDP Platform
+    </a>
+
+    <!-- Hamburger -->
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMain"
+            aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="#platform">Platform</a></li>
+        <li class="nav-item"><a class="nav-link" href="#revenue-map">Revenue Map</a></li>
+        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <div class="d-flex gap-2">
+        <a href="demo.html" class="btn btn-primary btn-sm px-3">Book Demo</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ================================================================
+     2. HERO
+     ================================================================ -->
+<section class="cdp-hero" id="platform">
+  <div class="cdp-hero__glow1"></div>
+  <div class="cdp-hero__glow2"></div>
+  <div class="container-xl py-5">
+    <div class="row g-5 align-items-center min-vh-100 py-5">
+
+      <!-- Left -->
+      <div class="col-lg-6 py-4">
+        <div class="cdp-hero__badge fade-up">
+          <span class="live-dot"></span>
+          Restaurant Guest Marketing Platform
+        </div>
+
+        <h1 class="cdp-hero__h1 fade-up">
+          Turn Every Guest<br>
+          <span class="gradient-text">Into a Regular.</span>
+        </h1>
+
+        <p class="cdp-hero__lead fade-up">
+          CDP brings all your guest data together and turns it into campaigns that bring guests back, grow their spending, and show you exactly what each campaign earned.
+        </p>
+
+        <div class="cdp-hero__actions fade-up">
+          <a href="demo.html" class="btn btn-primary btn-lg px-4">
+            <i class="fas fa-play-circle me-2"></i>See It Live
+          </a>
+          <a href="contact.html" class="btn btn-outline-light btn-lg px-4">
+            Book a Demo
+          </a>
+        </div>
+
+        <!-- 4 Stat cards via Bootstrap row -->
+        <div class="row g-3 mt-2">
+          <div class="col-6 col-sm-3">
+            <div class="cdp-stat">
+              <div class="cdp-stat__num" data-counter="3.7" data-suffix="×">3.7×</div>
+              <div class="cdp-stat__label">Average ROI</div>
+            </div>
+          </div>
+          <div class="col-6 col-sm-3">
+            <div class="cdp-stat">
+              <div class="cdp-stat__num" data-counter="72" data-suffix="%">72%</div>
+              <div class="cdp-stat__label">Less Cost</div>
+            </div>
+          </div>
+          <div class="col-6 col-sm-3">
+            <div class="cdp-stat">
+              <div class="cdp-stat__num" data-counter="18" data-prefix="$" data-suffix="K+">$18K+</div>
+              <div class="cdp-stat__label">Added Revenue/mo</div>
+            </div>
+          </div>
+          <div class="col-6 col-sm-3">
+            <div class="cdp-stat">
+              <div class="cdp-stat__num" data-counter="90" data-suffix="d">90d</div>
+              <div class="cdp-stat__label">To First Results</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right — floating visual cards -->
+      <div class="col-lg-6 d-none d-lg-block">
+        <div class="cdp-hero__visual">
+          <!-- Card 1 — Guest profile -->
+          <div class="cdp-float-card">
+            <div class="cdp-float-card__label">Guest Profile</div>
+            <div class="cdp-float-card__title">Sarah M. — VIP Guest</div>
+            <div class="cdp-float-card__row">
+              <div class="cdp-float-card__dot" style="background:#00C27A;"></div>
+              <div class="cdp-float-card__tag">Avg order: $42.50</div>
+              <div class="cdp-float-card__pct">↑ 18%</div>
+            </div>
+            <div class="cdp-float-card__row">
+              <div class="cdp-float-card__dot" style="background:#1B4FFF;"></div>
+              <div class="cdp-float-card__tag">Visits this month: 6</div>
+              <div class="cdp-float-card__pct">↑ 2</div>
+            </div>
+            <div class="cdp-float-card__row">
+              <div class="cdp-float-card__dot" style="background:#FF9F1C;"></div>
+              <div class="cdp-float-card__tag">LTV: $2,840</div>
+            </div>
+          </div>
+
+          <!-- Card 2 — Smart Groups -->
+          <div class="cdp-float-card">
+            <div class="cdp-float-card__label">Smart Groups</div>
+            <div class="cdp-float-card__title">High-Value At Risk</div>
+            <div class="cdp-float-card__row">
+              <div class="cdp-float-card__dot" style="background:#FF4747;"></div>
+              <div class="cdp-float-card__tag">1,240 guests — no visit 30d</div>
+            </div>
+            <div class="cdp-float-card__row">
+              <div class="cdp-float-card__dot" style="background:#00C27A;"></div>
+              <div class="cdp-float-card__tag">Avg LTV $1,800+</div>
+              <div class="cdp-float-card__pct">Win back</div>
+            </div>
+          </div>
+
+          <!-- Card 3 — Campaign live -->
+          <div class="cdp-float-card">
+            <div class="cdp-float-card__label">Campaign Running</div>
+            <div class="cdp-float-card__title">Summer Win-Back</div>
+            <div class="d-flex gap-2 flex-wrap mt-2">
+              <span class="cdp-pill cdp-pill--green"><i class="fas fa-circle"></i> Live</span>
+              <span class="cdp-pill cdp-pill--blue">3,412 sent</span>
+            </div>
+            <div class="cdp-float-card__row mt-2">
+              <div class="cdp-float-card__tag">Open rate</div>
+              <div class="cdp-float-card__pct">38.4%</div>
+            </div>
+            <div class="cdp-float-card__row">
+              <div class="cdp-float-card__tag">Revenue attributed</div>
+              <div class="cdp-float-card__pct">$4,210</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     3. THE PROBLEM
+     ================================================================ -->
+<section class="cdp-section bg-white" id="problem">
+  <div class="container-xl">
+    <div class="text-center mb-5 fade-up">
+      <div class="cdp-section-eyebrow">The Problem</div>
+      <h2 class="cdp-section-title">Why Most Restaurant Marketing Underperforms</h2>
+      <p class="cdp-section-sub">Three root causes — all fixable with the right data infrastructure.</p>
+    </div>
+
+    <div class="row g-4 fade-up">
+      <!-- Problem 1 -->
+      <div class="col-md-4">
+        <div class="cdp-problem-card cdp-problem-card--red h-100">
+          <div class="cdp-problem-card__emoji">📦</div>
+          <div class="cdp-problem-card__title">Guest Data Locked in Silos</div>
+          <p class="cdp-problem-card__body">
+            POS, loyalty app, delivery platform, and website each hold a piece of your guest's story — but never talk to each other. You're flying blind on who your best guests actually are.
+          </p>
+          <span class="badge bg-danger bg-opacity-10 text-danger me-1">Fragmented data</span>
+          <span class="badge bg-danger bg-opacity-10 text-danger">No unified view</span>
+        </div>
+      </div>
+      <!-- Problem 2 -->
+      <div class="col-md-4">
+        <div class="cdp-problem-card cdp-problem-card--amber h-100">
+          <div class="cdp-problem-card__emoji">🎯</div>
+          <div class="cdp-problem-card__title">Generic Blasts That Guests Ignore</div>
+          <p class="cdp-problem-card__body">
+            When everyone gets the same offer, open rates collapse and unsubscribes pile up. Without segmentation, you're training your best guests to ignore you.
+          </p>
+          <span class="badge bg-warning bg-opacity-10 text-warning me-1">Low open rates</span>
+          <span class="badge bg-warning bg-opacity-10 text-warning">High churn</span>
+        </div>
+      </div>
+      <!-- Problem 3 -->
+      <div class="col-md-4">
+        <div class="cdp-problem-card cdp-problem-card--purple h-100">
+          <div class="cdp-problem-card__emoji">📉</div>
+          <div class="cdp-problem-card__title">No Proof Marketing Is Working</div>
+          <p class="cdp-problem-card__body">
+            You spend on email and ads but can't tie a single campaign to a real table visit or order. Without revenue attribution, every budget decision is a guess.
+          </p>
+          <span class="badge bg-purple bg-opacity-10 text-purple me-1" style="background:rgba(124,58,237,.1) !important; color:var(--cdp-purple) !important;">No attribution</span>
+          <span class="badge" style="background:rgba(124,58,237,.1); color:var(--cdp-purple);">Blind spend</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cdp-fix-banner mt-5 fade-up">
+      🚀 CDP fixes all three — in 90 days or we refund your setup fee
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     4. HOW IT WORKS
+     ================================================================ -->
+<section class="cdp-section cdp-section--dark" id="how-it-works">
+  <div class="container-xl">
+    <div class="text-center mb-5 fade-up">
+      <div class="cdp-section-eyebrow cdp-section-eyebrow--light">How It Works</div>
+      <h2 class="cdp-section-title cdp-section-title--white">Five Steps to Guest Revenue</h2>
+      <p class="cdp-section-sub cdp-section-sub--light">One connected platform from raw POS data to campaign revenue.</p>
+    </div>
+
+    <div class="row g-5 align-items-center fade-up">
+      <!-- Circle diagram -->
+      <div class="col-lg-5 text-center">
+        <div class="cdp-circle-diagram">
+          <div class="cdp-circle-diagram__ring"></div>
+          <div class="cdp-circle-diagram__center">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <div class="cdp-circle-node" title="Collect"><i class="fas fa-database"></i></div>
+          <div class="cdp-circle-node" title="Unify"><i class="fas fa-user-check"></i></div>
+          <div class="cdp-circle-node" title="Segment"><i class="fas fa-layer-group"></i></div>
+          <div class="cdp-circle-node" title="Activate"><i class="fas fa-paper-plane"></i></div>
+          <div class="cdp-circle-node" title="Measure"><i class="fas fa-chart-line"></i></div>
+        </div>
+      </div>
+
+      <!-- Steps list -->
+      <div class="col-lg-7">
+        <div class="cdp-step-item">
+          <div class="cdp-step-num">1</div>
+          <div>
+            <div class="cdp-step-title">Collect Guest Data</div>
+            <div class="cdp-step-body">Pull in POS transactions, loyalty events, web visits, and delivery orders automatically. CSV import for legacy data.</div>
+          </div>
+        </div>
+        <div class="cdp-step-item">
+          <div class="cdp-step-num">2</div>
+          <div>
+            <div class="cdp-step-title">Unify Every Guest Profile</div>
+            <div class="cdp-step-body">Merge duplicate records by email and phone. Each guest gets one complete profile with their full visit history and lifetime value.</div>
+          </div>
+        </div>
+        <div class="cdp-step-item">
+          <div class="cdp-step-num">3</div>
+          <div>
+            <div class="cdp-step-title">Segment by Behaviour</div>
+            <div class="cdp-step-body">Build live audiences using any combination of RFM, spend tier, location, cuisine preference, or AI churn score.</div>
+          </div>
+        </div>
+        <div class="cdp-step-item">
+          <div class="cdp-step-num">4</div>
+          <div>
+            <div class="cdp-step-title">Activate Personalised Campaigns</div>
+            <div class="cdp-step-body">Launch email campaigns, automated journeys, and targeted coupons — each tailored to the segment receiving them.</div>
+          </div>
+        </div>
+        <div class="cdp-step-item">
+          <div class="cdp-step-num">5</div>
+          <div>
+            <div class="cdp-step-title">Measure Actual Revenue</div>
+            <div class="cdp-step-body">Every campaign shows open rate, conversion rate, and — crucially — revenue attributed to that send. No more guessing.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     5. REVENUE MAP TABLE
+     ================================================================ -->
+<section class="cdp-section cdp-section--dark2" id="revenue-map">
+  <div class="container-xl">
+    <div class="text-center mb-5 fade-up">
+      <div class="cdp-section-eyebrow cdp-section-eyebrow--light">Revenue Map</div>
+      <h2 class="cdp-section-title cdp-section-title--white">Every Stage of the Guest Lifecycle</h2>
+      <p class="cdp-section-sub cdp-section-sub--light">CDP activates revenue levers at every touchpoint — from first visit to loyal advocate.</p>
+    </div>
+
+    <div class="table-responsive fade-up">
+      <table class="table table-dark table-bordered table-striped align-middle cdp-revenue-table">
+        <thead>
+          <tr>
+            <th class="bg-primary bg-opacity-25">Guest Stage</th>
+            <th class="bg-success bg-opacity-25">Revenue Lever</th>
+            <th class="bg-info bg-opacity-25">CDP Tool</th>
+            <th class="bg-warning bg-opacity-25 text-dark">Typical Uplift</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="badge bg-secondary">New Guest</span></td>
+            <td>Welcome sequence — drive second visit within 14 days</td>
+            <td><span class="badge bg-primary">Automated Journey</span></td>
+            <td class="text-success fw-semibold">+22% 2nd-visit rate</td>
+          </tr>
+          <tr>
+            <td><span class="badge bg-info">Returning</span></td>
+            <td>Upsell premium items based on past order history</td>
+            <td><span class="badge bg-primary">Personalised Email</span></td>
+            <td class="text-success fw-semibold">+$4.80 avg ticket</td>
+          </tr>
+          <tr>
+            <td><span class="badge bg-warning text-dark">At-Risk</span></td>
+            <td>Win-back offer before 30-day lapse triggers</td>
+            <td><span class="badge bg-warning text-dark">Churn Prediction + Coupon</span></td>
+            <td class="text-success fw-semibold">38% win-back rate</td>
+          </tr>
+          <tr>
+            <td><span class="badge bg-success">Loyal</span></td>
+            <td>Referral incentive — bring a friend this weekend</td>
+            <td><span class="badge bg-primary">Targeted Offer</span></td>
+            <td class="text-success fw-semibold">+1.4 covers/table</td>
+          </tr>
+          <tr>
+            <td><span class="badge bg-danger">Churned</span></td>
+            <td>Reactivation campaign with urgency offer</td>
+            <td><span class="badge bg-danger">Segment + Campaign</span></td>
+            <td class="text-success fw-semibold">12% reactivation</td>
+          </tr>
+          <tr>
+            <td><span class="badge bg-purple" style="background:var(--cdp-purple) !important;">VIP</span></td>
+            <td>Exclusive preview events — lock in visit frequency</td>
+            <td><span class="badge bg-primary">Journey + SMS</span></td>
+            <td class="text-success fw-semibold">+2.1× visit rate</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     6. FEATURES
+     ================================================================ -->
+<section class="cdp-section cdp-section--light" id="features">
+  <div class="container-xl">
+    <div class="text-center mb-5 fade-up">
+      <div class="cdp-section-eyebrow">Platform Features</div>
+      <h2 class="cdp-section-title">Everything You Need, Built to Work Together</h2>
+      <p class="cdp-section-sub">Four capability areas — over 16 production features — all in one platform.</p>
+    </div>
+
+    <!-- ── Category 1: Know Every Guest ── -->
+    <div class="mb-5 fade-up">
+      <div class="cdp-category-header">
+        <div class="cdp-category-icon cdp-category-icon--blue">
+          <i class="fas fa-user-circle"></i>
+        </div>
+        <div>
+          <div class="cdp-category-title">Know Every Guest</div>
+          <div class="cdp-category-sub">Build a single, complete profile for every customer across all channels</div>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="card cdp-feature-card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="cdp-feature-icon" style="background:linear-gradient(135deg,#1B4FFF,#0F38CC);">
+                <i class="fas fa-id-card"></i>
+              </div>
+              <div class="cdp-feature-name">Complete Guest Profile</div>
+              <p class="cdp-feature-desc">Every guest gets one unified record combining POS data, web visits, and loyalty history. See the full picture at a glance — name, LTV, preferences, and contact details.</p>
+              <span class="badge bg-success me-1">Live</span>
+              <span class="badge bg-primary bg-opacity-10 text-primary me-1">Profile</span>
+              <span class="badge bg-primary bg-opacity-10 text-primary">Identity</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card cdp-feature-card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="cdp-feature-icon" style="background:linear-gradient(135deg,#06B6D4,#0891B2);">
+                <i class="fas fa-receipt"></i>
+              </div>
+              <div class="cdp-feature-name">Live Order Tracking</div>
+              <p class="cdp-feature-desc">Transactions flow in from your POS in real time and attach to each guest's profile automatically. No manual syncing, no lag, no gaps in spending history.</p>
+              <span class="badge bg-success me-1">Live</span>
+              <span class="badge bg-info bg-opacity-10 text-info me-1">POS Sync</span>
+              <span class="badge bg-info bg-opacity-10 text-info">Real-Time</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card cdp-feature-card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="cdp-feature-icon" style="background:linear-gradient(135deg,#00C27A,#009960);">
+                <i class="fas fa-file-import"></i>
+              </div>
+              <div class="cdp-feature-name">Guest Data Import</div>
+              <p class="cdp-feature-desc">Upload your existing guest lists via CSV in minutes. CDP deduplicates on email and phone, enriches profiles with LinkedIn data, and shows you exactly what was imported and why.</p>
+              <span class="badge bg-success me-1">Live</span>
+              <span class="badge bg-success bg-opacity-10 text-success me-1">CSV</span>
+              <span class="badge bg-success bg-opacity-10 text-success">Enrichment</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card cdp-feature-card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="cdp-feature-icon" style="background:linear-gradient(135deg,#FF9F1C,#E07B00);">
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="cdp-feature-name">Guest Value Scoring</div>
+              <p class="cdp-feature-desc">Automatic RFM scoring ranks every guest by Recency, Frequency, and Monetary value. Use score tiers to instantly identify your VIPs, at-risk guests, and untapped potential.</p>
+              <span class="badge bg-success me-1">Live</span>
+              <span class="badge bg-warning bg-opacity-10 text-warning me-1">RFM</span>
+              <span class="badge bg-warning bg-opacity-10 text-warning">LTV</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Category 2: Target the Right Guests ── -->
+    <div class="mb-5 fade-up">
+      <div class="cdp-category-header">
+        <div class="cdp-category-icon cdp-category-icon--purple">
+          <i class="fas fa-layer-group"></i>
+        </div>
+        <div>
+          <div class="cdp-category-title">Target the Right Guests</div>
+          <div class="cdp-category-sub">Build precise audiences and let AI predict who needs attention next</div>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="card cdp-feature-card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="cdp-feature-icon" style="background:linear-gradient(135deg,#7C3AED,#5B21B6);">
+                <i class="fas fa-layer-group"></i>
+              </div>
+              <div class="cdp-feature-name">Smart Guest Groups</div>
+              <p class="cdp-feature-desc">Build audiences using any combination of spend, visit frequency, location, cuisine preference, and more. Segments update live as new orders come in — no manual refresh needed.</p>
+              <span class="badge bg-success me-1">Live</span>
+              <span class="badge" style="background:rgba(124,58,237,.1);color:var(--cdp-purple);">Segments</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card cdp-feature-card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="cdp-feature-icon" style="background:linear-gradient(135deg,#1B4FFF,#7C3AED);">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="cdp-feature-name">AI Marketing Assistant</div>
+              <p class="cdp-feature-desc">Ask plain-English questions like "Which guests haven't visited in 30 days but spent over $500 last quarter?" and get a live audience and a campaign draft in seconds.</p>
+              <span class="badge bg-success me-1">Live</span>
+              <span class="badge bg-primary bg-opacity-10 text-primary me-1">AI</span>
+              <span class="badge bg-primary bg-opacity-10 text-primary">Copilot</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card cdp-feature-card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="cdp-feature-icon" style="background:linear-gradient(135deg,#FF4747,#CC2020);">
+                <i class="fas fa-heartbeat"></i>
+              </div>
+              <div class="cdp-feature-name">Churn Prediction</div>
+              <p class="cdp-feature-desc">Machine learning scores every guest's churn risk daily. Guests trending toward lapse get flagged automatically so you can send a win-back offer before they go quiet.</p>
+              <span class="badge bg-success me-1">Live</span>
+              <span class="badge bg-danger bg-opacity-10 text-danger me-1">AI</span>
+              <span class="badge bg-danger bg-opacity-10 text-danger">Prediction</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card cdp-feature-card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="cdp-feature-icon" style="background:linear-gradient(135deg,#06B6D4,#7C3AED);">
+                <i class="fas fa-sync-alt"></i>
+              </div>
+              <div class="cdp-feature-name">Ad Audience Sync</div>
+              <p class="cdp-feature-desc">Push your high-value guest segments directly to Google Ads and Meta as custom audiences. Run paid campaigns that target the same guests as your email — and measure both in one place.</p>
+              <span class="badge bg-warning bg-opacity-10 text-warning me-1">Coming Soon</span>
+              <span class="badge bg-info bg-opacity-10 text-info">Google</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Category 3: Campaigns That Run Themselves ── -->
+    <div class="mb-5 fade-up">
+      <div class="cdp-category-header">
+        <div class="cdp-category-icon cdp-category-icon--green">
+          <i class="fas fa-paper-plane"></i>
+        </div>
+        <div>
+          <div class="cdp-category-title">Campaigns That Run Themselves</div>
+          <div class="cdp-category-sub">Set up once, let the platform do the work — personalised for every guest</div>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="card cdp-feature-card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="cdp-feature-icon" style="background:linear-gradient(135deg,#00C27A,#009960);">
+                <i class="fas fa-envelope-open-text"></i>
+              </div>
+              <div class="cdp-feature-name">Personalised Email Campaigns</div>
+              <p class="cdp-feature-desc">Design beautiful emails with the drag-and-drop builder, personalise subject lines and content per segment, and schedule or send immediately to the right audience.</p>
+              <span class="badge bg-success me-1">Live</span>
+              <span class="badge bg-success bg-opacity-10 text-success me-1">Email</span>
+              <span class="badge bg-success bg-opacity-10 text-success">Templates</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card cdp-feature-card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="cdp-feature-icon" style="background:linear-gradient(135deg,#1B4FFF,#06B6D4);">
+                <i class="fas fa-route"></i>
+              </div>
+              <div class="cdp-feature-name">Automatic Guest Journeys</div>
+              <p class="cdp-feature-desc">Build multi-step workflows triggered by real events — first visit, lapse, birthday, or spend milestone. Guests move through the journey automatically without any manual intervention.</p>
+              <span class="badge bg-success me-1">Live</span>
+              <span class="badge bg-primary bg-opacity-10 text-primary me-1">Automation</span>
+              <span class="badge bg-primary bg-opacity-10 text-primary">Triggers</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card cdp-feature-card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="cdp-feature-icon" style="background:linear-gradient(135deg,#FF9F1C,#E07B00);">
+                <i class="fas fa-ticket-alt"></i>
+              </div>
+              <div class="cdp-feature-name">Targeted Offers &amp; Coupons</div>
+              <p class="cdp-feature-desc">Generate unique discount codes per guest segment with full redemption tracking. Tie every coupon to actual spend uplift and see the true incremental revenue it generated.</p>
+              <span class="badge bg-success me-1">Live</span>
+              <span class="badge bg-warning bg-opacity-10 text-warning me-1">Coupons</span>
+              <span class="badge bg-warning bg-opacity-10 text-warning">Offers</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card cdp-feature-card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="cdp-feature-icon" style="background:linear-gradient(135deg,#7C3AED,#06B6D4);">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <div class="cdp-feature-name">SMS &amp; Push</div>
+              <p class="cdp-feature-desc">Extend your reach beyond email with SMS campaigns and push notifications. Ideal for time-sensitive offers like last-minute table availability or weekend specials.</p>
+              <span class="badge bg-warning bg-opacity-10 text-warning me-1">Coming Soon</span>
+              <span class="badge" style="background:rgba(124,58,237,.1);color:var(--cdp-purple);">SMS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Category 4: See Exactly What's Working ── -->
+    <div class="fade-up">
+      <div class="cdp-category-header">
+        <div class="cdp-category-icon cdp-category-icon--amber">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <div>
+          <div class="cdp-category-title">See Exactly What's Working</div>
+          <div class="cdp-category-sub">Revenue attribution, live dashboards, and compliance — all built in</div>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="card cdp-feature-card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="cdp-feature-icon" style="background:linear-gradient(135deg,#FF9F1C,#E07B00);">
+                <i class="fas fa-pound-sign"></i>
+              </div>
+              <div class="cdp-feature-name">Revenue Per Campaign</div>
+              <p class="cdp-feature-desc">Every campaign report shows you the actual revenue it generated — not just opens and clicks. Compare cost to attributed spend and make every future campaign smarter.</p>
+              <span class="badge bg-success me-1">Live</span>
+              <span class="badge bg-warning bg-opacity-10 text-warning me-1">Attribution</span>
+              <span class="badge bg-warning bg-opacity-10 text-warning">ROI</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card cdp-feature-card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="cdp-feature-icon" style="background:linear-gradient(135deg,#1B4FFF,#0F38CC);">
+                <i class="fas fa-gauge-high"></i>
+              </div>
+              <div class="cdp-feature-name">Live Marketing Dashboard</div>
+              <p class="cdp-feature-desc">One screen shows active campaigns, guest counts by segment, revenue trends, and churn risk — updated every few minutes so you always know where you stand.</p>
+              <span class="badge bg-success me-1">Live</span>
+              <span class="badge bg-primary bg-opacity-10 text-primary me-1">Analytics</span>
+              <span class="badge bg-primary bg-opacity-10 text-primary">Dashboard</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card cdp-feature-card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="cdp-feature-icon" style="background:linear-gradient(135deg,#00C27A,#009960);">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="cdp-feature-name">GDPR &amp; Consent Built In</div>
+              <p class="cdp-feature-desc">Consent is captured, stored, and enforced automatically. Data subject requests are handled in one click. CDP keeps you compliant without needing a legal team involved in every campaign.</p>
+              <span class="badge bg-success me-1">Live</span>
+              <span class="badge bg-success bg-opacity-10 text-success me-1">GDPR</span>
+              <span class="badge bg-success bg-opacity-10 text-success">Consent</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="card cdp-feature-card h-100 border-0 shadow-sm">
+            <div class="card-body p-4">
+              <div class="cdp-feature-icon" style="background:linear-gradient(135deg,#06B6D4,#0891B2);">
+                <i class="fas fa-plug"></i>
+              </div>
+              <div class="cdp-feature-name">Works With Your Existing Tools</div>
+              <p class="cdp-feature-desc">Connect your POS, delivery platform, loyalty app, and ad accounts without rebuilding your tech stack. CDP sits on top of what you have and makes it smarter.</p>
+              <span class="badge bg-success me-1">Live</span>
+              <span class="badge bg-info bg-opacity-10 text-info me-1">Integrations</span>
+              <span class="badge bg-info bg-opacity-10 text-info">API</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     7. WHY CDP
+     ================================================================ -->
+<section class="cdp-section cdp-section--dark">
+  <div class="container-xl">
+    <div class="text-center mb-5 fade-up">
+      <div class="cdp-section-eyebrow cdp-section-eyebrow--light">Why CDP</div>
+      <h2 class="cdp-section-title cdp-section-title--white">Built Specifically for Restaurants</h2>
+      <p class="cdp-section-sub cdp-section-sub--light">Generic CRMs weren't built for covers, tickets, and visit frequency. CDP was.</p>
+    </div>
+
+    <div class="row g-4 fade-up">
+      <div class="col-lg-4 col-md-6">
+        <div class="cdp-why-card">
+          <div class="cdp-why-icon" style="background:linear-gradient(135deg,#1B4FFF,#0F38CC);">
+            <i class="fas fa-utensils"></i>
+          </div>
+          <div class="cdp-why-title">Restaurant-Native Data Model</div>
+          <p class="cdp-why-body">Covers, table turns, menu items, delivery orders — CDP understands your data natively. No mapping spreadsheets, no custom fields to configure.</p>
+          <div class="cdp-why-stat">Zero configuration required</div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="cdp-why-card">
+          <div class="cdp-why-icon" style="background:linear-gradient(135deg,#00C27A,#009960);">
+            <i class="fas fa-tachometer-alt"></i>
+          </div>
+          <div class="cdp-why-title">Live Within 90 Days</div>
+          <p class="cdp-why-body">Most clients send their first revenue-generating campaign within 3 weeks of onboarding. Our team handles data migration and integration setup for you.</p>
+          <div class="cdp-why-stat">Average onboarding: 21 days</div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="cdp-why-card">
+          <div class="cdp-why-icon" style="background:linear-gradient(135deg,#FF9F1C,#E07B00);">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <div class="cdp-why-title">Revenue Attribution You Can Trust</div>
+          <p class="cdp-why-body">CDP ties campaign sends to actual POS transactions. You see the real ROI of every email and offer — not modelled estimates, not last-click guesses.</p>
+          <div class="cdp-why-stat">3.7× average measured ROI</div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="cdp-why-card">
+          <div class="cdp-why-icon" style="background:linear-gradient(135deg,#7C3AED,#5B21B6);">
+            <i class="fas fa-brain"></i>
+          </div>
+          <div class="cdp-why-title">AI That Actually Helps</div>
+          <p class="cdp-why-body">Ask the AI assistant anything in plain English. It builds the segment, writes the campaign draft, and predicts the outcome — in under 60 seconds.</p>
+          <div class="cdp-why-stat">60-second campaign drafts</div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="cdp-why-card">
+          <div class="cdp-why-icon" style="background:linear-gradient(135deg,#06B6D4,#0891B2);">
+            <i class="fas fa-lock"></i>
+          </div>
+          <div class="cdp-why-title">Compliance Without the Headache</div>
+          <p class="cdp-why-body">GDPR consent management, data subject requests, and retention policies are all built in and enforced automatically. No legal overhead, no compliance risk.</p>
+          <div class="cdp-why-stat">100% GDPR compliant</div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="cdp-why-card">
+          <div class="cdp-why-icon" style="background:linear-gradient(135deg,#FF4747,#CC2020);">
+            <i class="fas fa-headset"></i>
+          </div>
+          <div class="cdp-why-title">Dedicated Success Team</div>
+          <p class="cdp-why-body">Every account gets a dedicated customer success manager who knows restaurants. Monthly strategy calls, campaign reviews, and 24/7 support included.</p>
+          <div class="cdp-why-stat">NPS score: 72</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     8. THREE REVENUE SCENARIOS
+     ================================================================ -->
+<section class="cdp-section bg-white">
+  <div class="container-xl">
+    <div class="text-center mb-5 fade-up">
+      <div class="cdp-section-eyebrow">Revenue Scenarios</div>
+      <h2 class="cdp-section-title">What CDP Typically Adds to the Bottom Line</h2>
+      <p class="cdp-section-sub">Real numbers from clients at different stages of deployment.</p>
+    </div>
+
+    <div class="row g-4 justify-content-center fade-up">
+      <!-- Scenario 1 -->
+      <div class="col-lg-4">
+        <div class="cdp-scenario-card">
+          <div class="cdp-scenario-card__header" style="border-top: 4px solid var(--cdp-blue);">
+            <div class="cdp-scenario-card__title">Single-Site Restaurant</div>
+            <div class="text-muted" style="font-size:.82rem;">150–300 covers/day</div>
+          </div>
+          <div class="cdp-scenario-card__body">
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="cdp-scenario-metric__label">Guest Database</div>
+                <div class="cdp-scenario-metric__val">8,000</div>
+              </div>
+              <div class="col-6">
+                <div class="cdp-scenario-metric__label">Monthly Email</div>
+                <div class="cdp-scenario-metric__val">2 sends</div>
+              </div>
+              <div class="col-6">
+                <div class="cdp-scenario-metric__label">Win-back Rate</div>
+                <div class="cdp-scenario-metric__val">22%</div>
+              </div>
+              <div class="col-6">
+                <div class="cdp-scenario-metric__label">Added Revenue</div>
+                <div class="cdp-scenario-metric__val cdp-scenario-metric__val--green">+$4.2K/mo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenario 2 -->
+      <div class="col-lg-4">
+        <div class="cdp-scenario-card" style="border-top: 4px solid var(--cdp-green);">
+          <div class="cdp-scenario-card__header">
+            <div class="cdp-scenario-card__title">3-Location Chain</div>
+            <div class="text-muted" style="font-size:.82rem;">400–700 covers/day total</div>
+          </div>
+          <div class="cdp-scenario-card__body">
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="cdp-scenario-metric__label">Guest Database</div>
+                <div class="cdp-scenario-metric__val">28,000</div>
+              </div>
+              <div class="col-6">
+                <div class="cdp-scenario-metric__label">Active Journeys</div>
+                <div class="cdp-scenario-metric__val">4 live</div>
+              </div>
+              <div class="col-6">
+                <div class="cdp-scenario-metric__label">Avg Ticket Lift</div>
+                <div class="cdp-scenario-metric__val">+$5.80</div>
+              </div>
+              <div class="col-6">
+                <div class="cdp-scenario-metric__label">Added Revenue</div>
+                <div class="cdp-scenario-metric__val cdp-scenario-metric__val--green">+$11.4K/mo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scenario 3 -->
+      <div class="col-lg-4">
+        <div class="cdp-scenario-card" style="border-top: 4px solid var(--cdp-purple);">
+          <div class="cdp-scenario-card__header">
+            <div class="cdp-scenario-card__title">Regional Brand</div>
+            <div class="text-muted" style="font-size:.82rem;">10+ locations</div>
+          </div>
+          <div class="cdp-scenario-card__body">
+            <div class="row g-3">
+              <div class="col-6">
+                <div class="cdp-scenario-metric__label">Guest Database</div>
+                <div class="cdp-scenario-metric__val">120,000</div>
+              </div>
+              <div class="col-6">
+                <div class="cdp-scenario-metric__label">Campaigns/Month</div>
+                <div class="cdp-scenario-metric__val">12+</div>
+              </div>
+              <div class="col-6">
+                <div class="cdp-scenario-metric__label">Churn Reduction</div>
+                <div class="cdp-scenario-metric__val">-34%</div>
+              </div>
+              <div class="col-6">
+                <div class="cdp-scenario-metric__label">Added Revenue</div>
+                <div class="cdp-scenario-metric__val cdp-scenario-metric__val--green">+$38K/mo</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     9. AI CHATBOT
+     ================================================================ -->
+<section class="cdp-section cdp-section--light">
+  <div class="container-xl">
+    <div class="text-center mb-5 fade-up">
+      <div class="cdp-section-eyebrow">AI Assistant</div>
+      <h2 class="cdp-section-title">Ask It Anything. Get a Campaign in 60 Seconds.</h2>
+      <p class="cdp-section-sub">The CDP AI speaks plain English — no SQL, no dashboards, just results.</p>
+    </div>
+
+    <div class="row g-5 align-items-center fade-up">
+      <!-- Chat window -->
+      <div class="col-lg-6">
+        <div class="cdp-chat-window">
+          <div class="cdp-chat-header">
+            <div class="cdp-chat-header__icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <div>
+              <div class="cdp-chat-header__title">CDP AI Assistant</div>
+              <div class="cdp-chat-header__sub">
+                <span class="cdp-pill cdp-pill--green d-inline-flex"><i class="fas fa-circle" style="font-size:.5rem;"></i> Online</span>
+              </div>
+            </div>
+          </div>
+          <div class="cdp-chat-body">
+            <div class="cdp-chat-bubble cdp-chat-bubble--user">
+              Who are my highest-value guests that haven't visited in the last 30 days?
+            </div>
+            <div class="cdp-chat-bubble cdp-chat-bubble--ai">
+              <div class="bubble-label">CDP AI</div>
+              Found <strong>1,240 guests</strong> with LTV &gt; $800 who haven't visited in 30+ days. Combined, they represent <strong>$2.1M in lifetime spend</strong>. Want me to build a win-back campaign for them?
+            </div>
+            <div class="cdp-chat-bubble cdp-chat-bubble--user">
+              Yes — offer them 20% off their next visit, expires in 7 days.
+            </div>
+            <div class="cdp-chat-bubble cdp-chat-bubble--ai">
+              <div class="bubble-label">CDP AI</div>
+              Done. Created segment <em>"VIP 30d Lapsed"</em>, generated 1,240 unique coupon codes, and drafted a personalised email with subject line options. Based on past campaigns, expect <strong>~38% open rate</strong> and <strong>$4,800+ in attributed revenue</strong> within 7 days. Ready to send?
+            </div>
+          </div>
+          <div class="cdp-chat-footer">
+            <input class="cdp-chat-input" type="text" placeholder="Ask about your guests, segments, or campaigns…" readonly />
+            <button class="btn btn-primary btn-sm px-3">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Capability list -->
+      <div class="col-lg-6">
+        <h3 class="fw-bold mb-4" style="font-family:var(--f-head); color:var(--cdp-text1);">
+          What the AI Can Do Right Now
+        </h3>
+        <div class="cdp-capability-item">
+          <div class="cdp-capability-icon" style="background:rgba(27,79,255,.1);">
+            <i class="fas fa-search text-primary"></i>
+          </div>
+          <div>
+            <div class="cdp-capability-title">Query Your Guest Data</div>
+            <div class="cdp-capability-body">Ask complex questions in plain English and get live segment counts with spend breakdowns in seconds.</div>
+          </div>
+        </div>
+        <div class="cdp-capability-item">
+          <div class="cdp-capability-icon" style="background:rgba(0,194,122,.1);">
+            <i class="fas fa-envelope text-success"></i>
+          </div>
+          <div>
+            <div class="cdp-capability-title">Draft Campaign Content</div>
+            <div class="cdp-capability-body">Generate subject lines, email body, and CTAs — personalised to the segment and offer type, reviewed before it sends.</div>
+          </div>
+        </div>
+        <div class="cdp-capability-item">
+          <div class="cdp-capability-icon" style="background:rgba(255,159,28,.1);">
+            <i class="fas fa-chart-line" style="color:var(--cdp-amber);"></i>
+          </div>
+          <div>
+            <div class="cdp-capability-title">Predict Campaign Outcomes</div>
+            <div class="cdp-capability-body">Before you send, the AI predicts open rate, redemption rate, and estimated revenue based on your historical performance.</div>
+          </div>
+        </div>
+        <div class="cdp-capability-item">
+          <div class="cdp-capability-icon" style="background:rgba(124,58,237,.1);">
+            <i class="fas fa-route" style="color:var(--cdp-purple);"></i>
+          </div>
+          <div>
+            <div class="cdp-capability-title">Build Automated Journeys</div>
+            <div class="cdp-capability-body">Describe the automation you want — "send a win-back email if no visit in 21 days" — and the AI builds the journey for your review.</div>
+          </div>
+        </div>
+        <div class="cdp-capability-item">
+          <div class="cdp-capability-icon" style="background:rgba(6,182,212,.1);">
+            <i class="fas fa-lightbulb" style="color:var(--cdp-teal);"></i>
+          </div>
+          <div>
+            <div class="cdp-capability-title">Surface Revenue Opportunities</div>
+            <div class="cdp-capability-body">The AI proactively alerts you to untapped revenue segments — "you have 800 high-LTV guests who've never received an offer."</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     10. ROI IMPACT
+     ================================================================ -->
+<section class="cdp-section bg-white">
+  <div class="container-xl">
+    <div class="text-center mb-5 fade-up">
+      <div class="cdp-section-eyebrow">ROI Calculator</div>
+      <h2 class="cdp-section-title">Estimate Your Revenue Upside</h2>
+      <p class="cdp-section-sub">Adjust the sliders to match your restaurant — see the potential impact.</p>
+    </div>
+
+    <div class="row g-4 align-items-start fade-up">
+      <!-- Inputs -->
+      <div class="col-lg-3">
+        <div class="card border-0 shadow-sm p-4">
+          <h6 class="fw-bold mb-3" style="font-family:var(--f-head);">Your Numbers</h6>
+          <div class="mb-3">
+            <div class="cdp-roi-label">Guest Database Size</div>
+            <input type="range" class="cdp-roi-param" id="roi-guests" min="1000" max="100000" step="1000" value="15000" />
+            <div class="d-flex justify-content-between">
+              <small class="text-muted">1K</small>
+              <strong id="roi-guests-val">15,000</strong>
+              <small class="text-muted">100K</small>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="cdp-roi-label">Avg Order Value ($)</div>
+            <input type="range" class="cdp-roi-param" id="roi-aov" min="10" max="120" step="5" value="35" />
+            <div class="d-flex justify-content-between">
+              <small class="text-muted">$10</small>
+              <strong id="roi-aov-val">$35</strong>
+              <small class="text-muted">$120</small>
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="cdp-roi-label">Monthly Visit Frequency</div>
+            <input type="range" class="cdp-roi-param" id="roi-freq" min="1" max="8" step="0.5" value="2" />
+            <div class="d-flex justify-content-between">
+              <small class="text-muted">1×</small>
+              <strong id="roi-freq-val">2×</strong>
+              <small class="text-muted">8×</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Impact table -->
+      <div class="col-lg-6">
+        <div class="card border-0 shadow-sm">
+          <div class="card-body p-0">
+            <table class="table table-hover mb-0 align-middle">
+              <thead class="table-light">
+                <tr>
+                  <th class="ps-4" style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;">Revenue Lever</th>
+                  <th style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;">Target Segment</th>
+                  <th class="text-end pe-4" style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;">Uplift</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="ps-4">Win-back campaign</td>
+                  <td><span class="badge bg-danger bg-opacity-10 text-danger">At-risk guests</span></td>
+                  <td class="text-end pe-4 text-success fw-semibold" id="roi-row1">—</td>
+                </tr>
+                <tr>
+                  <td class="ps-4">Frequency uplift</td>
+                  <td><span class="badge bg-primary bg-opacity-10 text-primary">Returning guests</span></td>
+                  <td class="text-end pe-4 text-success fw-semibold" id="roi-row2">—</td>
+                </tr>
+                <tr>
+                  <td class="ps-4">Ticket size upsell</td>
+                  <td><span class="badge bg-success bg-opacity-10 text-success">All guests</span></td>
+                  <td class="text-end pe-4 text-success fw-semibold" id="roi-row3">—</td>
+                </tr>
+                <tr>
+                  <td class="ps-4">Reactivation</td>
+                  <td><span class="badge bg-secondary bg-opacity-10 text-secondary">Churned guests</span></td>
+                  <td class="text-end pe-4 text-success fw-semibold" id="roi-row4">—</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="col-lg-3">
+        <div class="row g-3">
+          <div class="col-12">
+            <div class="card border-0 shadow-sm p-4 text-center">
+              <div class="cdp-roi-label text-center mb-1">Added Monthly Revenue</div>
+              <div class="cdp-roi-val cdp-roi-val--green" id="roi-monthly">—</div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card border-0 shadow-sm p-4 text-center">
+              <div class="cdp-roi-label text-center mb-1">Added Annual Revenue</div>
+              <div class="cdp-roi-val cdp-roi-val--blue" id="roi-annual">—</div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="card border-0 shadow-sm p-4 text-center">
+              <div class="cdp-roi-label text-center mb-1">Estimated ROI</div>
+              <div class="cdp-roi-val" id="roi-multiple">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     11. 90-DAY PILOT
+     ================================================================ -->
+<section class="cdp-section cdp-section--dark" id="pilot">
+  <div class="container-xl">
+    <div class="text-center mb-5 fade-up">
+      <div class="cdp-section-eyebrow cdp-section-eyebrow--light">90-Day Pilot</div>
+      <h2 class="cdp-section-title cdp-section-title--white">From Zero to Revenue in 90 Days</h2>
+      <p class="cdp-section-sub cdp-section-sub--light">A structured programme — we do the heavy lifting, you approve and launch.</p>
+    </div>
+
+    <div class="row g-4 mb-5 fade-up">
+      <!-- Phase 1 -->
+      <div class="col-lg-4">
+        <div class="cdp-phase-card">
+          <div class="cdp-phase-header" style="background:rgba(27,79,255,.15);">
+            <div class="cdp-phase-num">1</div>
+            <div>
+              <div class="cdp-phase-title">Foundation</div>
+              <div class="cdp-phase-sub">Days 1–30</div>
+            </div>
+          </div>
+          <div class="cdp-phase-body">
+            <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> POS integration live</div>
+            <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> Guest data unified and deduplicated</div>
+            <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> Core segments built (VIP, At-Risk, New)</div>
+            <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> First campaign sent</div>
+            <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> Team training completed</div>
+          </div>
+        </div>
+      </div>
+      <!-- Phase 2 -->
+      <div class="col-lg-4">
+        <div class="cdp-phase-card">
+          <div class="cdp-phase-header" style="background:rgba(0,194,122,.15);">
+            <div class="cdp-phase-num">2</div>
+            <div>
+              <div class="cdp-phase-title">Activation</div>
+              <div class="cdp-phase-sub">Days 31–60</div>
+            </div>
+          </div>
+          <div class="cdp-phase-body">
+            <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> Automated win-back journey live</div>
+            <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> Birthday and anniversary campaigns set up</div>
+            <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> Coupon campaign with redemption tracking</div>
+            <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> Revenue attribution configured</div>
+            <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> First ROI report delivered</div>
+          </div>
+        </div>
+      </div>
+      <!-- Phase 3 -->
+      <div class="col-lg-4">
+        <div class="cdp-phase-card">
+          <div class="cdp-phase-header" style="background:rgba(124,58,237,.15);">
+            <div class="cdp-phase-num">3</div>
+            <div>
+              <div class="cdp-phase-title">Optimisation</div>
+              <div class="cdp-phase-sub">Days 61–90</div>
+            </div>
+          </div>
+          <div class="cdp-phase-body">
+            <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> A/B testing framework live</div>
+            <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> AI churn predictions active</div>
+            <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> VIP loyalty programme designed</div>
+            <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> Full quarter review and ROI sign-off</div>
+            <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> 12-month strategy delivered</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom row -->
+    <div class="row g-4 fade-up">
+      <div class="col-md-6">
+        <div class="card border-0 h-100 p-4" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1) !important;">
+          <h5 class="fw-bold text-white mb-3" style="font-family:var(--f-head);">What You Need to Provide</h5>
+          <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> POS system API credentials or CSV export</div>
+          <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> Existing guest email list (if any)</div>
+          <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> 2–3 hrs of your team's time in week one</div>
+          <div class="cdp-phase-item"><i class="fas fa-check-circle"></i> Campaign approval sign-offs (30 min/week)</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card border-0 h-100 p-4" style="background:linear-gradient(135deg,rgba(27,79,255,.15),rgba(124,58,237,.15));border:1px solid rgba(27,79,255,.3) !important;">
+          <h5 class="fw-bold text-white mb-3" style="font-family:var(--f-head);">Ready to Start?</h5>
+          <p class="mb-4" style="color:var(--cdp-text3); font-size:.9rem;">Book a 30-minute strategy call. We'll map your guest data, identify your top 3 revenue opportunities, and show you a live demo with your actual numbers.</p>
+          <a href="demo.html" class="btn btn-primary w-100">
+            <i class="fas fa-calendar-check me-2"></i>Book Strategy Call
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     12. COMPETITIVE
+     ================================================================ -->
+<section class="cdp-section bg-white">
+  <div class="container-xl">
+    <div class="text-center mb-5 fade-up">
+      <div class="cdp-section-eyebrow">Why Switch</div>
+      <h2 class="cdp-section-title">CDP vs Generic CRMs</h2>
+      <p class="cdp-section-sub">Generic tools require months of configuration. CDP is live in weeks because it's built for restaurants from day one.</p>
+    </div>
+
+    <!-- Big stats -->
+    <div class="row justify-content-center g-3 mb-5 fade-up">
+      <div class="col-md-4">
+        <div class="cdp-comp-stat">
+          <div class="cdp-comp-stat__num">6×</div>
+          <div class="cdp-comp-stat__label">Faster to first campaign than Salesforce Marketing Cloud</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="cdp-comp-stat">
+          <div class="cdp-comp-stat__num">72%</div>
+          <div class="cdp-comp-stat__label">Lower total cost vs Klaviyo + custom POS connector</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparison table -->
+    <div class="table-responsive fade-up">
+      <table class="table table-hover align-middle">
+        <thead class="table-light">
+          <tr>
+            <th style="font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;font-weight:700;">Capability</th>
+            <th class="text-center" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;font-weight:700;color:var(--cdp-blue);">CDP Platform</th>
+            <th class="text-center" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;font-weight:700;">Klaviyo</th>
+            <th class="text-center" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;font-weight:700;">Mailchimp</th>
+            <th class="text-center" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;font-weight:700;">Generic CRM</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="fw-medium">Restaurant POS integration</td>
+            <td class="text-center"><i class="fas fa-check-circle text-success"></i></td>
+            <td class="text-center"><span class="text-muted" style="font-size:.8rem;">Custom dev</span></td>
+            <td class="text-center"><i class="fas fa-times-circle text-danger opacity-50"></i></td>
+            <td class="text-center"><i class="fas fa-times-circle text-danger opacity-50"></i></td>
+          </tr>
+          <tr>
+            <td class="fw-medium">Revenue attribution to campaigns</td>
+            <td class="text-center"><i class="fas fa-check-circle text-success"></i></td>
+            <td class="text-center"><i class="fas fa-check-circle text-success opacity-50"></i></td>
+            <td class="text-center"><i class="fas fa-times-circle text-danger opacity-50"></i></td>
+            <td class="text-center"><i class="fas fa-times-circle text-danger opacity-50"></i></td>
+          </tr>
+          <tr>
+            <td class="fw-medium">AI churn prediction</td>
+            <td class="text-center"><i class="fas fa-check-circle text-success"></i></td>
+            <td class="text-center"><i class="fas fa-times-circle text-danger opacity-50"></i></td>
+            <td class="text-center"><i class="fas fa-times-circle text-danger opacity-50"></i></td>
+            <td class="text-center"><i class="fas fa-times-circle text-danger opacity-50"></i></td>
+          </tr>
+          <tr>
+            <td class="fw-medium">Live RFM segments</td>
+            <td class="text-center"><i class="fas fa-check-circle text-success"></i></td>
+            <td class="text-center"><span class="text-muted" style="font-size:.8rem;">Manual</span></td>
+            <td class="text-center"><i class="fas fa-times-circle text-danger opacity-50"></i></td>
+            <td class="text-center"><span class="text-muted" style="font-size:.8rem;">Custom</span></td>
+          </tr>
+          <tr>
+            <td class="fw-medium">GDPR consent management</td>
+            <td class="text-center"><i class="fas fa-check-circle text-success"></i></td>
+            <td class="text-center"><i class="fas fa-check-circle text-success opacity-50"></i></td>
+            <td class="text-center"><i class="fas fa-check-circle text-success opacity-50"></i></td>
+            <td class="text-center"><span class="text-muted" style="font-size:.8rem;">Add-on</span></td>
+          </tr>
+          <tr>
+            <td class="fw-medium">Time to first campaign</td>
+            <td class="text-center fw-bold text-success">3 weeks</td>
+            <td class="text-center text-muted" style="font-size:.85rem;">6–8 weeks</td>
+            <td class="text-center text-muted" style="font-size:.85rem;">1–2 weeks</td>
+            <td class="text-center text-muted" style="font-size:.85rem;">3–6 months</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     13. PRICING
+     ================================================================ -->
+<section class="cdp-section cdp-section--light" id="pricing">
+  <div class="container-xl">
+    <div class="text-center mb-5 fade-up">
+      <div class="cdp-section-eyebrow">Pricing</div>
+      <h2 class="cdp-section-title">Simple Pricing. Real Results.</h2>
+      <p class="cdp-section-sub">All plans include onboarding support. No hidden integration fees.</p>
+    </div>
+
+    <div class="row g-4 justify-content-center fade-up">
+      <!-- Trial -->
+      <div class="col-lg-3 col-md-6">
+        <div class="cdp-price-card">
+          <div class="cdp-price-tier">Trial</div>
+          <div class="cdp-price-amt"><sup>$</sup>0</div>
+          <div class="cdp-price-period">30 days free</div>
+          <div class="cdp-price-tagline">Try CDP with your real data — no credit card needed.</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> Up to 1,000 guests</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> 3 campaigns</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> Email support</div>
+          <div class="cdp-price-feature cdp-price-feature--dim"><i class="fas fa-check-circle"></i> No POS integration</div>
+          <div class="cdp-price-feature cdp-price-feature--dim"><i class="fas fa-check-circle"></i> No AI assistant</div>
+          <a href="demo.html" class="btn btn-outline-primary w-100 mt-4">Start Free Trial</a>
+        </div>
+      </div>
+
+      <!-- Starter -->
+      <div class="col-lg-3 col-md-6">
+        <div class="cdp-price-card">
+          <div class="cdp-price-tier">Starter</div>
+          <div class="cdp-price-amt"><sup>$</sup>79</div>
+          <div class="cdp-price-period">per month</div>
+          <div class="cdp-price-tagline">One location. Full platform access to grow visits and spend.</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> Up to 10,000 guests</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> Unlimited campaigns</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> POS integration</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> Live RFM segments</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> Revenue attribution</div>
+          <div class="cdp-price-feature cdp-price-feature--dim"><i class="fas fa-check-circle"></i> No AI assistant</div>
+          <a href="demo.html" class="btn btn-outline-primary w-100 mt-4">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Growth — featured -->
+      <div class="col-lg-3 col-md-6">
+        <div class="cdp-price-card cdp-price-card--featured position-relative">
+          <div class="cdp-price-badge">Most Popular</div>
+          <div class="cdp-price-tier" style="color:var(--cdp-blue);">Growth</div>
+          <div class="cdp-price-amt"><sup>$</sup>199</div>
+          <div class="cdp-price-period">per month</div>
+          <div class="cdp-price-tagline">Multi-location brand. AI-powered automation and full analytics.</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> Up to 50,000 guests</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> Unlimited everything</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> AI marketing assistant</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> Churn prediction</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> Automated journeys</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> Priority support</div>
+          <a href="demo.html" class="btn btn-primary w-100 mt-4">Start with Growth</a>
+        </div>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="col-lg-3 col-md-6">
+        <div class="cdp-price-card">
+          <div class="cdp-price-tier">Enterprise</div>
+          <div class="cdp-price-amt"><sup>$</sup>499</div>
+          <div class="cdp-price-period">per month</div>
+          <div class="cdp-price-tagline">10+ locations. Custom data model, SSO, and dedicated team.</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> Unlimited guests</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> Custom integrations</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> Dedicated CSM</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> SSO + SAML</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> SLA guarantee</div>
+          <div class="cdp-price-feature"><i class="fas fa-check-circle"></i> On-site training</div>
+          <a href="contact.html" class="btn btn-outline-primary w-100 mt-4">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     14. INTEGRATIONS
+     ================================================================ -->
+<section class="cdp-section cdp-section--dark2">
+  <div class="container-xl">
+    <div class="text-center mb-5 fade-up">
+      <div class="cdp-section-eyebrow cdp-section-eyebrow--light">Integrations</div>
+      <h2 class="cdp-section-title cdp-section-title--white">Connects to Your Existing Stack</h2>
+      <p class="cdp-section-sub cdp-section-sub--light">CDP works with the tools you already use — no rip-and-replace required.</p>
+    </div>
+
+    <div class="row g-3 justify-content-center fade-up">
+      <div class="col-auto">
+        <div class="cdp-integration-item">
+          <i class="fas fa-cash-register text-warning"></i>
+          <span>POS Systems</span>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="cdp-integration-item">
+          <i class="fab fa-mailchimp text-warning"></i>
+          <span>Mailchimp</span>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="cdp-integration-item">
+          <i class="fab fa-hubspot text-danger"></i>
+          <span>HubSpot</span>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="cdp-integration-item">
+          <i class="fab fa-google text-info"></i>
+          <span>Google Ads</span>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="cdp-integration-item">
+          <i class="fab fa-facebook text-primary"></i>
+          <span>Meta Ads</span>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="cdp-integration-item">
+          <i class="fas fa-utensils text-success"></i>
+          <span>Deliveroo</span>
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="cdp-integration-item">
+          <i class="fas fa-code text-muted"></i>
+          <span>REST API</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     15. FOOTER
+     ================================================================ -->
+<footer class="cdp-footer" id="contact">
+  <div class="container-xl">
+    <div class="row g-4">
+      <!-- Brand col -->
+      <div class="col-lg-4 col-md-6">
+        <div class="cdp-footer__brand">
+          <i class="fas fa-bullseye text-primary me-2"></i>CDP Platform
+        </div>
+        <p class="cdp-footer__tagline">Better data. More visits. More revenue.</p>
+        <div class="d-flex gap-3">
+          <a href="#" class="cdp-footer__link" aria-label="LinkedIn"><i class="fab fa-linkedin fa-lg"></i></a>
+          <a href="#" class="cdp-footer__link" aria-label="Twitter"><i class="fab fa-twitter fa-lg"></i></a>
+          <a href="mailto:hello@cdpplatform.io" class="cdp-footer__link" aria-label="Email"><i class="fas fa-envelope fa-lg"></i></a>
+        </div>
+      </div>
+
+      <!-- Platform links -->
+      <div class="col-lg-2 col-md-3 col-6">
+        <div class="cdp-footer__heading">Platform</div>
+        <a href="#platform" class="cdp-footer__link">How It Works</a>
+        <a href="#features" class="cdp-footer__link">Features</a>
+        <a href="#pricing" class="cdp-footer__link">Pricing</a>
+        <a href="demo.html" class="cdp-footer__link">Book Demo</a>
+      </div>
+
+      <!-- Resources links -->
+      <div class="col-lg-2 col-md-3 col-6">
+        <div class="cdp-footer__heading">Resources</div>
+        <a href="#" class="cdp-footer__link">Documentation</a>
+        <a href="#" class="cdp-footer__link">API Reference</a>
+        <a href="#" class="cdp-footer__link">Case Studies</a>
+        <a href="#" class="cdp-footer__link">Blog</a>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-lg-4 col-md-6">
+        <div class="cdp-footer__heading">Get in Touch</div>
+        <p style="font-size:.85rem; margin-bottom:.75rem;">Ready to see what CDP can do for your restaurant? Book a 30-minute strategy call.</p>
+        <a href="demo.html" class="btn btn-primary btn-sm px-4">
+          <i class="fas fa-calendar-check me-2"></i>Book a Demo
+        </a>
+        <div class="mt-3">
+          <a href="mailto:hello@cdpplatform.io" class="cdp-footer__link" style="display:inline;">hello@cdpplatform.io</a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="cdp-footer__divider" />
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 cdp-footer__copy">
+      <span>&copy; 2026 CDP Platform — Restaurant Guest Marketing. All rights reserved.</span>
+      <div class="d-flex gap-3">
+        <a href="#" class="cdp-footer__link" style="font-size:.78rem;">Privacy Policy</a>
+        <a href="#" class="cdp-footer__link" style="font-size:.78rem;">Terms of Service</a>
+        <a href="#" class="cdp-footer__link" style="font-size:.78rem;">GDPR</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================================================================
+     SCRIPTS
+     ================================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

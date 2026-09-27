@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CDP Platform Demo — See how to recover lapsed guests, earn second visits, and stop paying for regulars with live walkthroughs." />
+  <title>Demo — CDP Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <style>
+    .demo-creds-hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+    .demo-open-btn {
+      margin-top: 1.75rem;
+      font-size: 1.05rem;
+      padding: .875rem 2.5rem;
+    }
+    /* Scenarios */
+    .scenarios-section {
+      background: var(--c-light);
+      padding: 5rem 2rem;
+    }
+    .scenario-meta {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+    .scenario-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      background: var(--c-primary);
+      color: var(--c-white);
+      font-family: var(--f-head);
+      font-weight: 800;
+      font-size: .85rem;
+      flex-shrink: 0;
+    }
+    .scenario-num--green { background: var(--c-green); }
+    .scenario-num--purple { background: var(--c-purple); }
+    .scenario-tag {
+      padding: .2rem .65rem;
+      border-radius: 100px;
+      font-size: .72rem;
+      font-weight: 700;
+      background: var(--c-primary-l);
+      color: var(--c-primary-d);
+    }
+    .scenario-tag--green { background: var(--c-green-l); color: #065F46; }
+    .scenario-tag--purple { background: var(--c-purple-l); color: #5B21B6; }
+    .scenario-stats {
+      display: flex;
+      gap: 1.25rem;
+      margin: 1.25rem 0;
+      flex-wrap: wrap;
+    }
+    .scenario-stat {
+      text-align: center;
+      padding: .75rem 1.25rem;
+      background: var(--c-white);
+      border-radius: var(--r);
+      border: 1px solid var(--c-border);
+      min-width: 90px;
+    }
+    .scenario-stat-val {
+      font-family: var(--f-head);
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--c-text1);
+    }
+    .scenario-stat-val--green { color: var(--c-green); }
+    .scenario-stat-label {
+      font-size: .68rem;
+      font-weight: 600;
+      color: var(--c-text2);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+    /* Nav steps inside accordion */
+    .nav-steps {
+      display: flex;
+      flex-direction: column;
+      gap: .25rem;
+      margin-top: 1rem;
+      padding-left: .5rem;
+      border-left: 2px solid var(--c-border);
+    }
+    .nav-step {
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      padding: .6rem .75rem;
+      border-radius: var(--r);
+      transition: background .15s;
+    }
+    .nav-step:hover { background: var(--c-light); }
+    .nav-step-icon {
+      width: 28px; height: 28px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .75rem;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+    .nav-step-text strong {
+      display: block;
+      font-size: .875rem;
+      font-weight: 600;
+      color: var(--c-text1);
+      margin-bottom: .15rem;
+    }
+    .nav-step-text span {
+      font-size: .8rem;
+      color: var(--c-text2);
+    }
+    /* Feature highlights grid */
+    .demo-highlights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .highlight-card {
+      padding: 1.75rem;
+      border-radius: var(--r-lg);
+      border: 1px solid var(--c-border);
+      background: var(--c-white);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .highlight-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .highlight-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    /* Final CTA */
+    .final-cta {
+      background: linear-gradient(135deg, var(--c-dark) 0%, #1e1b4b 100%);
+      padding: 5rem 2rem;
+      text-align: center;
+      color: var(--c-white);
+    }
+    @media (max-width: 768px) {
+      .demo-highlights { grid-template-columns: 1fr; }
+      .scenario-stats { gap: .75rem; }
+    }
+    @media (max-width: 480px) {
+      .demo-highlights { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="nav scrolled" id="mainNav">
+  <div class="nav__inner">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-dot"></span>
+      CDP Platform
+    </a>
+    <div class="nav__links">
+      <a href="index.html#pillars">Platform</a>
+      <a href="demo.html" class="active">Demo</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#integrations">Integrations</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://github.com" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+      <a href="demo.html" class="nav__cta">Live Demo</a>
+    </div>
+    <button class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile overlay -->
+<div class="nav__mobile-overlay">
+  <a href="index.html#pillars">Platform</a>
+  <a href="demo.html">Demo</a>
+  <a href="index.html#features">Features</a>
+  <a href="index.html#integrations">Integrations</a>
+  <a href="index.html#pricing">Pricing</a>
+  <a href="contact.html">Contact</a>
+  <a href="demo.html">Live Demo →</a>
+</div>
+
+<!-- ── DEMO HERO ── -->
+<div class="page-hero">
+  <p class="section-label mx-auto" style="justify-content:center;"><i class="fa-solid fa-play"></i> Live Platform</p>
+  <h1>See CDP in Action</h1>
+  <p>A fully working .NET 8 + PostgreSQL platform with real data, real AI, and real integrations. Explore without signing up.</p>
+
+  <div class="demo-creds-hero">
+    <div class="credentials-card">
+      <div class="cred-row">
+        <span class="cred-label">URL</span>
+        <span class="cred-value">http://localhost:5200</span>
+      </div>
+      <div class="cred-row">
+        <span class="cred-label">Email</span>
+        <span class="cred-value">admin@cdp.com</span>
+      </div>
+      <div class="cred-row">
+        <span class="cred-label">Password</span>
+        <span class="cred-value">Admin123!</span>
+      </div>
+    </div>
+    <a href="http://localhost:5200" target="_blank" rel="noopener" class="btn-primary demo-open-btn">
+      <i class="fa-solid fa-rocket"></i>
+      Open Live Demo at localhost:5200
+    </a>
+  </div>
+</div>
+
+<!-- ── FEATURE HIGHLIGHTS ── -->
+<section class="section" id="highlights">
+  <div class="container">
+    <div class="text-center fade-in">
+      <h2 class="section-title">What to Explore in the Demo</h2>
+      <p class="section-sub mx-auto">Six areas of the platform worth 10 minutes of your time</p>
+    </div>
+
+    <div class="demo-highlights">
+      <div class="highlight-card fade-in d1">
+        <div class="highlight-icon">👤</div>
+        <h3 style="font-family:var(--f-head);font-weight:700;font-size:1rem;margin-bottom:.5rem;">Guest Profiles</h3>
+        <p style="font-size:.875rem;color:var(--c-text2);line-height:1.65;">Unified 360 views with LTV, RFM score, lifecycle stage, order history, and Lusha enrichment data.</p>
+        <div style="margin-top:.75rem;"><span class="badge badge-blue">Guests → Any customer</span></div>
+      </div>
+      <div class="highlight-card fade-in d2">
+        <div class="highlight-icon">⚡</div>
+        <h3 style="font-family:var(--f-head);font-weight:700;font-size:1rem;margin-bottom:.5rem;">AI Segment Builder</h3>
+        <p style="font-size:.875rem;color:var(--c-text2);line-height:1.65;">Type a plain-English description. The AI agent translates it into segment rules and shows a live count.</p>
+        <div style="margin-top:.75rem;"><span class="badge badge-purple">Segments → Create New</span></div>
+      </div>
+      <div class="highlight-card fade-in d3">
+        <div class="highlight-icon">✉</div>
+        <h3 style="font-family:var(--f-head);font-weight:700;font-size:1rem;margin-bottom:.5rem;">Campaign Builder</h3>
+        <p style="font-size:.875rem;color:var(--c-text2);line-height:1.65;">Multi-step campaign wizard with template selection, audience targeting, A/B testing, and scheduling.</p>
+        <div style="margin-top:.75rem;"><span class="badge badge-green">Campaigns → Create</span></div>
+      </div>
+      <div class="highlight-card fade-in d1">
+        <div class="highlight-icon">🛤</div>
+        <h3 style="font-family:var(--f-head);font-weight:700;font-size:1rem;margin-bottom:.5rem;">Journey Automation</h3>
+        <p style="font-size:.875rem;color:var(--c-text2);line-height:1.65;">Visual journey builder with trigger events, wait steps, branch conditions, and Hangfire execution.</p>
+        <div style="margin-top:.75rem;"><span class="badge badge-amber">Journeys → Any journey</span></div>
+      </div>
+      <div class="highlight-card fade-in d2">
+        <div class="highlight-icon">🤖</div>
+        <h3 style="font-family:var(--f-head);font-weight:700;font-size:1rem;margin-bottom:.5rem;">AI Agents Studio</h3>
+        <p style="font-size:.875rem;color:var(--c-text2);line-height:1.65;">5 specialized agents — CustomerInsight, CampaignOptimizer, SegmentBuilder, JourneyDesigner, DataEnricher.</p>
+        <div style="margin-top:.75rem;"><span class="badge badge-blue">AI → AI Agents</span></div>
+      </div>
+      <div class="highlight-card fade-in d3">
+        <div class="highlight-icon">📊</div>
+        <h3 style="font-family:var(--f-head);font-weight:700;font-size:1rem;margin-bottom:.5rem;">Analytics Dashboard</h3>
+        <p style="font-size:.875rem;color:var(--c-text2);line-height:1.65;">Revenue attribution, delivery funnels, engagement heatmaps, and guest growth trends with ECharts.</p>
+        <div style="margin-top:.75rem;"><span class="badge badge-green">Analytics → Reports</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SCENARIO WALKTHROUGHS ── -->
+<section class="scenarios-section" id="scenarios">
+  <div class="container">
+    <div class="text-center fade-in">
+      <p class="section-label"><i class="fa-solid fa-map"></i> Walkthroughs</p>
+      <h2 class="section-title">Three Scenarios to Walk Through</h2>
+      <p class="section-sub mx-auto">Follow these step-by-step guides to see the full power of the platform</p>
+    </div>
+
+    <div style="margin-top:2.5rem;">
+
+      <!-- SCENARIO 1 -->
+      <div class="accordion-item fade-in d1">
+        <div class="accordion-header open" tabindex="0" role="button" aria-expanded="true">
+          <div class="scenario-meta">
+            <div class="scenario-num scenario-num--green">1</div>
+            <div>
+              <div class="accordion-title">Win Back Lapsed Guests</div>
+              <div style="font-size:.8rem;color:var(--c-text2);margin-top:.15rem;">Recover guests who haven't ordered in 60+ days with targeted email + Google Ads</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:.5rem;align-items:center;">
+            <span class="scenario-tag scenario-tag--green">+18% Revenue</span>
+            <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+          </div>
+        </div>
+        <div class="accordion-body open">
+          <div class="accordion-content">
+            <div class="scenario-stats">
+              <div class="scenario-stat">
+                <div class="scenario-stat-val">31%</div>
+                <div class="scenario-stat-label">Open Rate</div>
+              </div>
+              <div class="scenario-stat">
+                <div class="scenario-stat-val">82%</div>
+                <div class="scenario-stat-label">Match Rate</div>
+              </div>
+              <div class="scenario-stat">
+                <div class="scenario-stat-val scenario-stat-val--green">+18%</div>
+                <div class="scenario-stat-label">Rev Uplift</div>
+              </div>
+              <div class="scenario-stat">
+                <div class="scenario-stat-val">18</div>
+                <div class="scenario-stat-label">Guests</div>
+              </div>
+            </div>
+
+            <div class="nav-steps">
+              <div class="nav-step">
+                <div class="nav-step-icon" style="background:var(--c-primary-l);color:var(--c-primary);">
+                  <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <div class="nav-step-text">
+                  <strong>Step 1 — Build the Segment</strong>
+                  <span>Navigate to <b>Segments → Create</b>. Add rule: "Last Order more than 60 days ago" AND "Lifetime Value greater than $50". Click Preview — you'll see 18 matching guests. Save as "Lapsed High-Value Guests".</span>
+                </div>
+              </div>
+              <div class="nav-step">
+                <div class="nav-step-icon" style="background:var(--c-amber-l);color:var(--c-amber);">
+                  <i class="fa-solid fa-ticket"></i>
+                </div>
+                <div class="nav-step-text">
+                  <strong>Step 2 — Create the Coupon</strong>
+                  <span>Navigate to <b>Coupons → Create</b>. Code: COMEBACK20. Type: Percentage. Value: 20%. Expiry: 14 days. Save the coupon — note the unique code.</span>
+                </div>
+              </div>
+              <div class="nav-step">
+                <div class="nav-step-icon" style="background:var(--c-green-l);color:var(--c-green);">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="nav-step-text">
+                  <strong>Step 3 — Create the Campaign</strong>
+                  <span>Navigate to <b>Campaigns → Create</b>. Choose template "Win-Back". Attach segment "Lapsed High-Value Guests". Insert COMEBACK20 coupon into email body. Set subject: "We miss you — here's 20% off". Schedule for tomorrow 10 AM.</span>
+                </div>
+              </div>
+              <div class="nav-step">
+                <div class="nav-step-icon" style="background:var(--c-purple-l);color:var(--c-purple);">
+                  <i class="fa-brands fa-google"></i>
+                </div>
+                <div class="nav-step-text">
+                  <strong>Step 4 — Sync to Google Ads</strong>
+                  <span>Navigate to <b>Integrations → Google Ads</b>. Select the "Lapsed High-Value Guests" segment. Click Sync — CDP hashes emails with SHA-256 and uploads the audience to Google Customer Match. Set up a retargeting campaign in Google Ads targeting this audience.</span>
+                </div>
+              </div>
+              <div class="nav-step">
+                <div class="nav-step-icon" style="background:var(--c-primary-l);color:var(--c-primary);">
+                  <i class="fa-solid fa-chart-bar"></i>
+                </div>
+                <div class="nav-step-text">
+                  <strong>Step 5 — Measure Results</strong>
+                  <span>After 7 days, navigate to <b>Campaigns → COMEBACK20 Win-Back → Reports</b>. View delivery funnel, open rate (31%), click rate, coupon redemptions, and 7-day revenue attribution. The platform matches redeemed coupons back to the original segment.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCENARIO 2 -->
+      <div class="accordion-item fade-in d2">
+        <div class="accordion-header" tabindex="0" role="button" aria-expanded="false">
+          <div class="scenario-meta">
+            <div class="scenario-num">2</div>
+            <div>
+              <div class="accordion-title">Earn the Second Visit</div>
+              <div style="font-size:.8rem;color:var(--c-text2);margin-top:.15rem;">Automated welcome journey that converts new guests into regulars</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:.5rem;align-items:center;">
+            <span class="scenario-tag">+32% Revenue</span>
+            <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+          </div>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-content">
+            <div class="scenario-stats">
+              <div class="scenario-stat">
+                <div class="scenario-stat-val">24%</div>
+                <div class="scenario-stat-label">Open Rate</div>
+              </div>
+              <div class="scenario-stat">
+                <div class="scenario-stat-val">67%</div>
+                <div class="scenario-stat-label">Match Rate</div>
+              </div>
+              <div class="scenario-stat">
+                <div class="scenario-stat-val scenario-stat-val--green">+32%</div>
+                <div class="scenario-stat-label">Rev Uplift</div>
+              </div>
+            </div>
+
+            <div class="nav-steps">
+              <div class="nav-step">
+                <div class="nav-step-icon" style="background:var(--c-primary-l);color:var(--c-primary);">
+                  <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <div class="nav-step-text">
+                  <strong>Step 1 — Identify New Guests</strong>
+                  <span>Navigate to <b>Segments</b>. You'll see a pre-built segment "New This Week" — guests whose first order was in the last 7 days. This segment auto-updates daily via Hangfire.</span>
+                </div>
+              </div>
+              <div class="nav-step">
+                <div class="nav-step-icon" style="background:var(--c-green-l);color:var(--c-green);">
+                  <i class="fa-solid fa-route"></i>
+                </div>
+                <div class="nav-step-text">
+                  <strong>Step 2 — Build the Welcome Journey</strong>
+                  <span>Navigate to <b>Journeys → Create</b>. Trigger: "New customer joins segment New This Week". Add steps: (1) Send Welcome Email immediately, (2) Wait 3 days, (3) Check: has guest ordered again? (4a) Yes → End. (4b) No → Send "Come back, here's a reward" email with WELCOME14 coupon.</span>
+                </div>
+              </div>
+              <div class="nav-step">
+                <div class="nav-step-icon" style="background:var(--c-amber-l);color:var(--c-amber);">
+                  <i class="fa-solid fa-ticket"></i>
+                </div>
+                <div class="nav-step-text">
+                  <strong>Step 3 — Set Up Birthday Automation</strong>
+                  <span>Add a secondary journey: Trigger "Birthday approaching (7 days out)". Send a birthday reward email with a unique coupon code. Watch <b>Journeys</b> execution logs to see Hangfire firing each step in real time.</span>
+                </div>
+              </div>
+              <div class="nav-step">
+                <div class="nav-step-icon" style="background:var(--c-purple-l);color:var(--c-purple);">
+                  <i class="fa-solid fa-gauge-high"></i>
+                </div>
+                <div class="nav-step-text">
+                  <strong>Step 4 — Monitor the Journey</strong>
+                  <span>Navigate to <b>Journeys → Welcome Journey → Details</b>. See how many guests are at each step, how many have completed, and the revenue attributed to journey-triggered orders over 7 days.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCENARIO 3 -->
+      <div class="accordion-item fade-in d3">
+        <div class="accordion-header" tabindex="0" role="button" aria-expanded="false">
+          <div class="scenario-meta">
+            <div class="scenario-num scenario-num--purple">3</div>
+            <div>
+              <div class="accordion-title">Stop Paying for Regulars</div>
+              <div style="font-size:.8rem;color:var(--c-text2);margin-top:.15rem;">Exclude your best guests from paid ads — save budget, improve ROAS</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:.5rem;align-items:center;">
+            <span class="scenario-tag scenario-tag--purple">+ROAS</span>
+            <i class="fa-solid fa-chevron-down accordion-chevron"></i>
+          </div>
+        </div>
+        <div class="accordion-body">
+          <div class="accordion-content">
+            <div class="scenario-stats">
+              <div class="scenario-stat">
+                <div class="scenario-stat-val">4.2×</div>
+                <div class="scenario-stat-label">ROAS</div>
+              </div>
+              <div class="scenario-stat">
+                <div class="scenario-stat-val">82%</div>
+                <div class="scenario-stat-label">Match Rate</div>
+              </div>
+              <div class="scenario-stat">
+                <div class="scenario-stat-val scenario-stat-val--green">-40%</div>
+                <div class="scenario-stat-label">Wasted Spend</div>
+              </div>
+            </div>
+
+            <div class="nav-steps">
+              <div class="nav-step">
+                <div class="nav-step-icon" style="background:var(--c-purple-l);color:var(--c-purple);">
+                  <i class="fa-solid fa-users"></i>
+                </div>
+                <div class="nav-step-text">
+                  <strong>Step 1 — Identify Your Regulars</strong>
+                  <span>Navigate to <b>Segments</b> and find the pre-built "Champions" segment — guests with RFM score ≥ 12/15 who order at least twice a month. These guests don't need incentivized ads; they already come back.</span>
+                </div>
+              </div>
+              <div class="nav-step">
+                <div class="nav-step-icon" style="background:var(--c-primary-l);color:var(--c-primary);">
+                  <i class="fa-brands fa-google"></i>
+                </div>
+                <div class="nav-step-text">
+                  <strong>Step 2 — Create a Suppression Audience in Google Ads</strong>
+                  <span>Navigate to <b>Integrations → Google Ads → Sync Audience</b>. Select the "Champions" segment. Toggle to "Exclusion list". CDP hashes all emails, uploads to Google Customer Match as a suppression list. Your ad campaigns now skip these guests entirely.</span>
+                </div>
+              </div>
+              <div class="nav-step">
+                <div class="nav-step-icon" style="background:#EEF2FF;color:#4338CA;">
+                  <i class="fa-brands fa-meta"></i>
+                </div>
+                <div class="nav-step-text">
+                  <strong>Step 3 — Repeat for Meta Ads</strong>
+                  <span>Navigate to <b>Integrations → Meta Ads</b>. Same process — upload Champions as a custom audience suppression list on Meta. Both suppression lists update automatically on a daily schedule.</span>
+                </div>
+              </div>
+              <div class="nav-step">
+                <div class="nav-step-icon" style="background:var(--c-green-l);color:var(--c-green);">
+                  <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                <div class="nav-step-text">
+                  <strong>Step 4 — Watch ROAS Improve</strong>
+                  <span>Navigate to <b>Analytics → Reports</b>. Compare ad spend efficiency before and after suppression. With regulars excluded, your budget focuses entirely on acquisition and lapsed re-engagement — the guests who actually need an incentive. Typical result: 40% reduction in wasted ad spend.</span>
+                </div>
+              </div>
+              <div class="nav-step">
+                <div class="nav-step-icon" style="background:var(--c-amber-l);color:var(--c-amber);">
+                  <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div class="nav-step-text">
+                  <strong>Consent Note</strong>
+                  <span>Every ad sync checks the guest's consent status. Guests who have opted out of marketing are automatically excluded from all audience uploads regardless of segment membership. Navigate to <b>Guests → Any guest → Privacy tab</b> to see consent flags in action.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="final-cta" id="open-demo">
+  <div class="container">
+    <p class="section-label mx-auto" style="justify-content:center;color:rgba(255,255,255,.5);">
+      <i class="fa-solid fa-rocket"></i> Ready
+    </p>
+    <h2 style="font-family:var(--f-head);font-size:clamp(1.75rem,4vw,2.75rem);font-weight:900;color:var(--c-white);margin-bottom:1rem;">
+      Explore the Full Platform
+    </h2>
+    <p style="color:rgba(255,255,255,.6);font-size:1.05rem;margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto;">
+      Everything you just read about is live, working, and ready to click through at localhost:5200.
+    </p>
+
+    <div class="credentials-card mx-auto" style="margin-bottom:2rem;">
+      <div class="cred-row">
+        <span class="cred-label">URL</span>
+        <span class="cred-value">http://localhost:5200</span>
+      </div>
+      <div class="cred-row">
+        <span class="cred-label">Email</span>
+        <span class="cred-value">admin@cdp.com</span>
+      </div>
+      <div class="cred-row">
+        <span class="cred-label">Password</span>
+        <span class="cred-value">Admin123!</span>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <a href="http://localhost:5200" target="_blank" rel="noopener" class="btn-primary" style="font-size:1rem;padding:.875rem 2rem;">
+        <i class="fa-solid fa-rocket"></i>
+        Open Live Demo at localhost:5200
+      </a>
+      <a href="contact.html" class="btn-ghost">
+        <i class="fa-solid fa-envelope"></i>
+        Request a Walkthrough
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div>
+        <div class="footer__logo">
+          <div class="nav__logo-dot"></div>
+          CDP Platform
+        </div>
+        <p class="footer__tagline">The modern Customer Data Platform for restaurant chains.</p>
+      </div>
+      <div>
+        <div class="footer__col-title">Platform</div>
+        <ul class="footer__links">
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#integrations">Integrations</a></li>
+          <li><a href="index.html#pricing">Pricing</a></li>
+          <li><a href="index.html#architecture">Security</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Demo</div>
+        <ul class="footer__links">
+          <li><a href="demo.html">Live Demo</a></li>
+          <li><a href="demo.html">Video Tour</a></li>
+          <li><a href="demo.html">Documentation</a></li>
+          <li><a href="index.html#competitive">API</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer__col-title">Resources</div>
+        <ul class="footer__links">
+          <li><a href="contact.html">Blog</a></li>
+          <li><a href="contact.html">Help Center</a></li>
+          <li><a href="contact.html">Case Studies</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 CDP Platform — Customer Data Platform. All rights reserved.</span>
+      <div class="footer__pills">
+        <span class="footer__pill">.NET 8</span>
+        <span class="footer__pill">PostgreSQL</span>
+        <span class="footer__pill">Docker</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
