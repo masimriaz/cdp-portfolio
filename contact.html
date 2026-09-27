@@ -688,11 +688,12 @@
     var params = {
       from_name:  document.getElementById('fullName').value.trim(),
       from_email: document.getElementById('email').value.trim(),
+      reply_to:   document.getElementById('email').value.trim(),   /* EmailJS reply-to */
+      to_name:    'Asim Riaz',                                      /* recipient name */
       company:    document.getElementById('company').value.trim() || 'Not provided',
       phone:      document.getElementById('phone').value.trim()   || 'Not provided',
       subject:    document.getElementById('subject').value,
-      message:    document.getElementById('message').value.trim(),
-      to_email:   'asimesp@gmail.com'
+      message:    document.getElementById('message').value.trim()
     };
 
     emailjs.send(SERVICE_ID, TEMPLATE_ID, params)
