@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <!--
-  EMAIL SETUP REQUIRED:
-  1. Create free account at https://www.emailjs.com
-  2. Add Email Service (Gmail recommended)
-  3. Create Email Template with variables: from_name, from_email, company, phone, subject, message
-  4. Replace YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, YOUR_PUBLIC_KEY below
-  5. Set reply-to = {{from_email}} in template settings
+  EMAIL SETUP STATUS:
+  ✅ Service ID:  service_y9lg90x   (configured)
+  ✅ Template ID: template_t203gdf  (configured)
+  ⏳ Public Key:  YOUR_PUBLIC_KEY   (get from emailjs.com → Account → General → Public Key)
+
+  LAST STEP: Replace YOUR_PUBLIC_KEY in the script below with your EmailJS Public Key.
+  Then commit and push — contact form will be fully live.
+
+  Template variables used: from_name, from_email, company, phone, subject, message, to_email
+  Reply-To should be set to {{from_email}} in your EmailJS template settings.
 -->
 <html lang="en">
 <head>
@@ -362,10 +366,10 @@
 (function () {
   'use strict';
 
-  // ── EmailJS config — REPLACE THESE ──
-  var SERVICE_ID  = 'YOUR_SERVICE_ID';
-  var TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-  var PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
+  // ── EmailJS config ──
+  var SERVICE_ID  = 'service_y9lg90x';
+  var TEMPLATE_ID = 'template_t203gdf';
+  var PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';  // ← Get from EmailJS Dashboard → Account → Public Key
 
   // Init EmailJS
   if (typeof emailjs !== 'undefined') {
