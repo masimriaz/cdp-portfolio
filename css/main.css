@@ -939,3 +939,240 @@ a { text-decoration: none; }
   .cdp-float-card { min-width: 180px; }
   .cdp-circle-diagram { width: 200px; height: 200px; }
 }
+
+
+/* ================================================================
+   RESPONSIVE — Mobile-first breakpoints
+   Bootstrap breakpoints: xs<576, sm≥576, md≥768, lg≥992, xl≥1200
+   These rules handle custom components Bootstrap grid doesn't cover.
+   ================================================================ */
+
+/* ── LG (992px and below) ─────────────────────────────────────── */
+@media (max-width: 991.98px) {
+
+  /* Hero: stack visual below text, hide floating cards */
+  .cdp-hero { padding-top: 80px; padding-bottom: 3rem; }
+  .cdp-hero__visual { display: none !important; }
+  .cdp-hero__lead { max-width: 100%; font-size: .98rem; }
+  .cdp-hero__h1 { font-size: clamp(2rem, 6vw, 2.8rem); }
+
+  /* How It Works: stack left/right */
+  .hiw-wrap { grid-template-columns: 1fr; gap: 2rem; }
+  .hiw-circle-wrap { max-width: 320px; margin: 0 auto; }
+
+  /* Revenue map: horizontal scroll */
+  .rmap-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .rmap-table  { min-width: 700px; }
+
+  /* AI Chat: stack */
+  .aichat-wrap { grid-template-columns: 1fr; gap: 2rem; }
+
+  /* ROI: stack */
+  .roi-wrap { grid-template-columns: 1fr; }
+  .roi-results { flex-direction: row; flex-wrap: wrap; }
+  .roi-result  { flex: 1 1 140px; }
+
+  /* Pilot: stack */
+  .pilot-grid   { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .pilot-bottom { grid-template-columns: 1fr; }
+
+  /* Why CDP: 2 cols */
+  .whycdp-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Footer */
+  .cdp-footer__links { grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; }
+}
+
+/* ── MD (768px and below) ─────────────────────────────────────── */
+@media (max-width: 767.98px) {
+
+  /* Sections: reduce vertical padding */
+  .cdp-section, section.py-5 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+
+  /* Hero stats: 2x2 grid */
+  .cdp-hero .row.g-3 > [class*="col-"] { flex: 0 0 50%; max-width: 50%; }
+  .cdp-hero__actions { flex-direction: column; align-items: flex-start; gap: .625rem; }
+  .cdp-hero__actions .btn { width: 100%; justify-content: center; }
+
+  /* Section headings */
+  .cdp-section-title,
+  h2[style*="font-size"] { font-size: clamp(1.5rem, 5vw, 2rem) !important; }
+
+  /* Problem cards: full width */
+  .cdp-problem-card { margin-bottom: .75rem; }
+
+  /* Pillar tabs: scroll horizontally */
+  .pillars-tabs {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: .375rem;
+    padding-bottom: .5rem;
+    flex-wrap: nowrap;
+  }
+  .pillars-tabs::-webkit-scrollbar { height: 3px; }
+  .pillars-tabs::-webkit-scrollbar-thumb { background: rgba(27,79,255,.3); border-radius: 3px; }
+  .pillar-tab { white-space: nowrap; flex-shrink: 0; font-size: .78rem; padding: .5rem .875rem; }
+
+  /* Pillar content: stack */
+  .pillar-panel.active,
+  .pillar-panel--active { grid-template-columns: 1fr !important; gap: 1.5rem; }
+
+  /* Architecture diagram */
+  .arch-row { flex-direction: column !important; gap: .625rem; }
+  .arch-box { width: 100% !important; text-align: center; }
+  .arch-arrow { padding: .375rem 0; }
+
+  /* Feature cat header */
+  .feat2-cat-header { flex-wrap: wrap; gap: .5rem; }
+
+  /* Revenue map: compact */
+  .rmap-table { font-size: .72rem; }
+  .rmap-table thead th, .rmap-table tbody td { padding: 7px 8px; }
+  .rmap-stage-hdr { font-size: .72rem; padding: 7px 6px; }
+  .rmap-lever { font-size: .65rem; padding: 3px 8px; }
+  .rmap-key { gap: .75rem; font-size: .7rem; }
+
+  /* How It Works orbit: scale down */
+  .hiw-orbit { width: 280px; height: 280px; }
+  .hiw-node__circle { width: 44px; height: 44px; font-size: .95rem; }
+  .hiw-center { width: 120px; height: 120px; }
+  .hiw-center__title { font-size: .75rem; }
+  .hiw-steps { gap: .875rem; }
+  .hiw-step__num { width: 30px; height: 30px; font-size: .78rem; }
+
+  /* AI Chat bubbles */
+  .aichat-bubble { max-width: 95%; font-size: .8rem; }
+  .aichat-panel { min-height: auto; }
+
+  /* ROI table: compact */
+  .roi-table { font-size: .78rem; }
+  .roi-table thead th, .roi-table tbody td { padding: 7px 10px; }
+  .roi-params { padding: 1.25rem; }
+  .roi-param__val { font-size: 1.1rem; }
+  .roi-result__val { font-size: 1.5rem; }
+  .roi-result--dark .roi-result__val { font-size: 2rem; }
+
+  /* Pilot: single column */
+  .pilot-grid { grid-template-columns: 1fr; }
+
+  /* Why CDP: single column */
+  .whycdp-grid { grid-template-columns: 1fr; }
+
+  /* Integration grid */
+  .int-grid { grid-template-columns: repeat(3, 1fr) !important; }
+
+  /* Pricing: single column */
+  .cdp-price-card { margin-bottom: .875rem; }
+
+  /* Footer: stack */
+  .cdp-footer__links { grid-template-columns: 1fr 1fr; gap: 1.5rem 2rem; }
+
+  /* Credentials card in hero */
+  .cdp-creds-card { max-width: 100%; }
+
+  /* Info items in contact page */
+  .info-card { margin-bottom: 1.25rem; }
+
+  /* Reach cards */
+  .reach-card { padding: 1rem; }
+  .reach-card h5 { font-size: .82rem; }
+
+  /* Contact hero */
+  .contact-hero { padding: 100px 0 60px; }
+  .contact-stats { gap: .5rem; }
+  .contact-stat { padding: 8px 12px; }
+  .contact-stat__val { font-size: .82rem; }
+}
+
+/* ── SM (576px and below) ─────────────────────────────────────── */
+@media (max-width: 575.98px) {
+
+  /* Navbar brand text: shorten */
+  .navbar-brand span { font-size: 1rem !important; }
+
+  /* Hero stats: full width pills */
+  .cdp-hero .row.g-3 > [class*="col-"] { flex: 0 0 100%; max-width: 100%; }
+  .cdp-stat { display: flex; align-items: center; justify-content: space-between; padding: .75rem 1rem; }
+  .cdp-stat__num { font-size: 1.3rem; margin-bottom: 0; margin-right: .5rem; }
+  .cdp-stat__label { font-size: .7rem; }
+
+  /* Section sub text */
+  .cdp-section-sub,
+  p.section-sub { font-size: .85rem !important; }
+
+  /* Revenue map legend */
+  .rmap-legend { flex-wrap: wrap; gap: .5rem; }
+
+  /* Integration grid: 2 col */
+  .int-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* ROI params */
+  .roi-param__val { font-size: 1rem; }
+
+  /* Pillar tab num hide */
+  .pillar-tab { padding: .45rem .7rem; font-size: .72rem; }
+
+  /* Contact form: single col */
+  .contact-stats { flex-direction: column; }
+  .contact-stat { width: 100%; }
+
+  /* Demo hero */
+  .demo-hero h1 { font-size: clamp(1.8rem, 7vw, 2.4rem); }
+  .demo-hero p { font-size: .92rem; }
+
+  /* Footer: single col */
+  .cdp-footer__links { grid-template-columns: 1fr; }
+  .cdp-footer__bottom { flex-direction: column !important; text-align: center; gap: .75rem; }
+
+  /* Buttons: full width on mobile hero */
+  .demo-hero .d-flex.gap-3 { flex-direction: column; }
+  .demo-hero .d-flex.gap-3 .btn { width: 100%; justify-content: center; }
+  .contact-hero .d-flex { flex-direction: column; }
+  .contact-hero .d-flex .btn { width: 100%; justify-content: center; }
+
+  /* Accordion scenario stats: 2x2 */
+  .cdp-acc-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: .5rem; }
+  .cdp-acc-stat { min-width: unset; }
+
+  /* Why CDP stat */
+  .whycdp-stat { font-size: .82rem; }
+
+  /* Feature cards */
+  .feat2-card { padding: 1rem; }
+  .feat2-card__desc { font-size: .75rem; }
+}
+
+/* ── Touch improvements (all mobile) ─────────────────────────── */
+@media (max-width: 991.98px) {
+
+  /* Minimum tap target 44px */
+  .btn, .nav-link, .cdp-acc-trigger,
+  .pillar-tab, .aichat-btn { min-height: 44px; }
+
+  /* Remove hover transforms on touch — they stay stuck */
+  .demo-highlight-card:hover,
+  .cdp-feature-card:hover,
+  .cdp-why-card:hover,
+  .whycdp-card:hover,
+  .info-item:hover { transform: none !important; }
+
+  /* Larger body text for readability */
+  body { font-size: 15px; }
+
+  /* Ensure tables don't cause page-level horizontal scroll */
+  .rmap-scroll, .roi-center { overflow-x: auto; }
+  .rmap-scroll { border-radius: 8px; }
+
+  /* Mobile nav collapsed state: add padding */
+  .navbar-collapse { padding: 1rem 0; }
+  .navbar-nav .nav-link { padding: .625rem 0 !important; border-bottom: 1px solid rgba(255,255,255,.06); }
+  .navbar-nav .nav-item:last-child .nav-link { border-bottom: none; }
+  .navbar-collapse .btn { margin-top: .75rem; width: 100%; justify-content: center; }
+}
+
+/* ── Print ────────────────────────────────────────────────────── */
+@media print {
+  .cdp-nav, footer, .demo-cta { display: none; }
+  body { font-size: 11pt; }
+}
