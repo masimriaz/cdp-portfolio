@@ -130,7 +130,11 @@ a { text-decoration: none; }
   position: relative;
   overflow: hidden;
   padding-top: 90px;
+  display: flex;             /* centre content rather than stacking the
+                                section's 100vh on top of the row's */
+  align-items: center;
 }
+.cdp-hero > .container-xl { width: 100%; }
 .cdp-hero::before {
   content: '';
   position: absolute;
@@ -220,6 +224,7 @@ a { text-decoration: none; }
   border-radius: 12px;
   padding: 1rem 1.25rem;
   backdrop-filter: blur(8px);
+  height: 100%;          /* keep all four level when a label wraps */
 }
 .cdp-stat__num {
   font-family: var(--f-head);
@@ -695,6 +700,7 @@ a { text-decoration: none; }
    ROI IMPACT
    ================================================================ */
 .cdp-roi-label {
+  display: block;
   font-size: .75rem;
   font-weight: 600;
   color: var(--cdp-text2);
@@ -705,6 +711,9 @@ a { text-decoration: none; }
   width: 100%;
   accent-color: var(--cdp-blue);
   margin: .5rem 0;
+  height: 24px;          /* larger hit area than the 16px default */
+  padding: 4px 0;
+  cursor: pointer;
 }
 .cdp-roi-val {
   font-family: var(--f-head);
@@ -715,6 +724,12 @@ a { text-decoration: none; }
 }
 .cdp-roi-val--green { color: var(--cdp-green); }
 .cdp-roi-val--blue  { color: var(--cdp-blue); }
+.cdp-roi-basis {
+  font-size: .68rem;
+  line-height: 1.35;
+  color: var(--cdp-text3);
+  margin-top: .5rem;
+}
 
 /* ================================================================
    90-DAY PILOT
@@ -804,7 +819,14 @@ a { text-decoration: none; }
   color: var(--cdp-text1);
   line-height: 1;
 }
-.cdp-price-amt sup { font-size: 1.2rem; font-weight: 600; vertical-align: top; margin-top: .5rem; }
+.cdp-price-amt sup {
+  font-size: 1.2rem;
+  font-weight: 600;
+  vertical-align: baseline;   /* `top` overflowed into .cdp-price-tier */
+  position: relative;
+  top: -.75rem;               /* margin-top is ignored on inline boxes */
+  margin-right: .1rem;
+}
 .cdp-price-period { font-size: .82rem; color: var(--cdp-text2); margin-bottom: .35rem; }
 .cdp-price-tagline { font-size: .8rem; color: var(--cdp-text2); margin-bottom: 1.5rem; border-bottom: 1px solid var(--cdp-border); padding-bottom: 1.5rem; }
 .cdp-price-feature {
@@ -1199,3 +1221,84 @@ a { text-decoration: none; }
 .cdp-lc-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 @media(max-width:767.98px){.cdp-lc-card{min-width:140px;padding:1rem .875rem}}
 @media(max-width:575.98px){.cdp-lifecycle-flow{flex-direction:column;overflow-x:visible}.cdp-lc-arrow{transform:rotate(90deg);align-self:center}.cdp-lc-card{min-width:unset}}
+
+/* ================================================================
+   ACCESSIBILITY & ROBUSTNESS
+   ================================================================ */
+
+/* Horizontal overflow: Bootstrap's .row pulls -24px of negative margin for
+   a g-5 gutter, but .container only pads 12px, so ~12px spills past the
+   viewport on any screen below the container breakpoint. Match the
+   horizontal gutter to the padding the container actually has. */
+@media (max-width: 1199.98px) {
+  [class*="container"] > .row.g-5 { --bs-gutter-x: 1.5rem; }
+}
+
+/* Visible keyboard focus. Custom components dropped Bootstrap's ring, which
+   left keyboard users with no indication of where they were. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--cdp-blue);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.cdp-hero a:focus-visible,
+.cdp-nav a:focus-visible,
+.cdp-nav button:focus-visible,
+.cdp-footer a:focus-visible,
+.cdp-section--dark a:focus-visible,
+.cdp-section--dark2 a:focus-visible {
+  outline-color: #fff;
+}
+
+/* Skip link for keyboard and screen-reader users. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 2000;
+  padding: .75rem 1.25rem;
+  background: var(--cdp-blue);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus {
+  left: 0;
+  color: #fff;
+}
+
+/* No-JS / failed-JS fallback: .fade-up starts at opacity 0 and only JS adds
+   .visible, so a script failure would blank almost the whole page. */
+.no-js .fade-up {
+  opacity: 1 !important;
+  transform: none !important;
+}
+/* .scrolled is also JS-applied; without it the navbar stays transparent and
+   its links sit on top of the page content. */
+.no-js .cdp-nav {
+  background: rgba(8,12,20,.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(255,255,255,.06);
+}
+
+/* Respect users who ask for less motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
