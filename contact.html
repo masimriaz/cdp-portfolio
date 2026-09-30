@@ -237,6 +237,7 @@
       border: 1px solid rgba(255,255,255,.1);
       border-radius: 14px; padding: 1.25rem;
       transition: background .2s, transform .2s;
+      height: 100%;   /* cards in a row differ in copy length */
     }
     .reach-card:hover {
       background: rgba(255,255,255,.07);
@@ -597,12 +598,12 @@
       <div class="col-lg-2 col-md-3 col-6">
         <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#3D5280;margin-bottom:.75rem">Company</div>
         <a href="contact.html" style="display:block;font-size:.84rem;color:#93B4FF;text-decoration:none;margin-bottom:.5rem">Contact</a>
-        <a href="contact.html" style="display:block;font-size:.84rem;color:#3D5280;text-decoration:none;margin-bottom:.5rem" onmouseover="this.style.color='#93B4FF'" onmouseout="this.style.color='#3D5280'">Demo</a>
+        <a href="index.html#how-it-works" style="display:block;font-size:.84rem;color:#3D5280;text-decoration:none;margin-bottom:.5rem" onmouseover="this.style.color='#93B4FF'" onmouseout="this.style.color='#3D5280'">How It Works</a>
         <a href="https://github.com/masimriaz/cdp-portfolio" target="_blank" style="display:block;font-size:.84rem;color:#3D5280;text-decoration:none" onmouseover="this.style.color='#93B4FF'" onmouseout="this.style.color='#3D5280'">GitHub</a>
       </div>
       <div class="col-lg-4 col-md-6">
         <div style="font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#3D5280;margin-bottom:.75rem">Ready to Start?</div>
-        <p style="font-size:.84rem;color:#3D5280;line-height:1.7;margin-bottom:.875rem">See the 3.7&times; ROI model live &mdash; book a 45-minute walkthrough with your own guest data numbers.</p>
+        <p style="font-size:.84rem;color:#3D5280;line-height:1.7;margin-bottom:1.5rem">See the 3.7&times; ROI model live &mdash; book a 45-minute walkthrough with your own guest data numbers.</p>
         <a href="contact.html" class="btn btn-primary btn-sm px-4">
           <i class="fas fa-calendar-check me-2"></i>Book a Demo
         </a>
@@ -634,20 +635,6 @@
   var PUBLIC_KEY  = 'QgTa6oe27DHJlhdDQ';
 
   emailjs.init({ publicKey: PUBLIC_KEY });
-
-  /* ── Navbar scroll ── */
-  var nav = document.getElementById('cdpNav');
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 60) {
-      nav.style.background = 'rgba(8,12,20,.97)';
-      nav.style.backdropFilter = 'blur(20px)';
-      nav.style.boxShadow = '0 1px 0 rgba(255,255,255,.06)';
-    } else {
-      nav.style.background = '';
-      nav.style.backdropFilter = '';
-      nav.style.boxShadow = '';
-    }
-  }, { passive: true });
 
   /* ── Form elements ── */
   var form         = document.getElementById('contactForm');

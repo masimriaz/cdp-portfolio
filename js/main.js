@@ -11,20 +11,19 @@
   /* ── Navbar scroll: transparent → solid dark ── */
   var nav = document.querySelector('.cdp-nav');
   if (nav) {
-    function onScroll() {
-      if (window.scrollY > 80) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
+    /* Only pages with a dark hero have a transparent state to return to.
+       Elsewhere the bar stays solid — the scroll handler used to strip
+       .scrolled back off at the top of the page, leaving contact.html with
+       a see-through navbar and menu. */
+    if (!document.querySelector('.cdp-hero')) {
+      nav.classList.add('scrolled');
+    } else {
+      var onScroll = function () {
+        nav.classList.toggle('scrolled', window.scrollY > 80);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
     }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
-
-  /* ── Ensure navbar is solid on pages without a hero ── */
-  if (nav && !document.querySelector('.cdp-hero')) {
-    nav.classList.add('scrolled');
   }
 
   /* ── Smooth scroll for in-page anchor links ── */

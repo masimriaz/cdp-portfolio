@@ -84,6 +84,8 @@ a { text-decoration: none; }
    ================================================================ */
 .cdp-nav {
   background: transparent;
+  padding-top: 1rem;      /* Bootstrap's .5rem left the CTA tight to the edge */
+  padding-bottom: 1rem;
   transition: background .3s ease, box-shadow .3s ease, backdrop-filter .3s ease;
 }
 .cdp-nav.scrolled {
@@ -377,13 +379,48 @@ a { text-decoration: none; }
 .cdp-fix-banner {
   background: linear-gradient(90deg, var(--cdp-blue) 0%, var(--cdp-purple) 100%);
   border-radius: 14px;
-  padding: 1.1rem 2rem;
-  text-align: center;
+  padding: 1.25rem 1.75rem;
   color: #fff;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.cdp-fix-banner__msg {
+  display: flex;
+  align-items: center;
+  gap: .625rem;
   font-family: var(--f-head);
   font-size: 1.05rem;
   font-weight: 700;
-  margin-top: 2rem;
+  line-height: 1.4;
+}
+.cdp-fix-banner__cta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: #fff;
+  color: var(--cdp-blue) !important;
+  font-family: var(--f-head);
+  font-size: .85rem;
+  font-weight: 800;
+  padding: .625rem 1.15rem;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.cdp-fix-banner__cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.28);
+}
+@media (max-width: 767.98px) {
+  .cdp-fix-banner { flex-direction: column; gap: 1rem; text-align: center; }
+  .cdp-fix-banner__msg { justify-content: center; }
+  .cdp-fix-banner__cta { width: 100%; justify-content: center; }
 }
 
 /* ================================================================
@@ -784,7 +821,13 @@ a { text-decoration: none; }
   height: 100%;
   transition: box-shadow .2s;
   position: relative;
+  display: flex;             /* so the CTA can be pinned to the bottom */
+  flex-direction: column;
 }
+/* The feature lists differ in length, so without this the four CTAs
+   sit at four different heights. */
+.cdp-price-card > .btn { margin-top: auto; }
+.cdp-price-card > .cdp-price-feature:last-of-type { margin-bottom: 1.5rem; }
 .cdp-price-card:hover { box-shadow: var(--shadow-lg); }
 .cdp-price-card--featured {
   border-color: var(--cdp-blue) !important;
@@ -1172,6 +1215,17 @@ a { text-decoration: none; }
   .btn, .nav-link, .cdp-acc-trigger,
   .pillar-tab, .aichat-btn { min-height: 44px; }
 
+  /* ...but min-height only grows the box. A block-level button lays its
+     label at the top, so the extra height all lands below it (6px above
+     vs 19px below). Centre the content inside the taller target. */
+  .btn,
+  .navbar-nav .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .navbar-nav .nav-link { justify-content: flex-start; width: 100%; }
+
   /* Remove hover transforms on touch — they stay stuck */
   .demo-highlight-card:hover,
   .cdp-feature-card:hover,
@@ -1186,11 +1240,20 @@ a { text-decoration: none; }
   .rmap-scroll, .roi-center { overflow-x: auto; }
   .rmap-scroll { border-radius: 8px; }
 
-  /* Mobile nav collapsed state: add padding */
-  .navbar-collapse { padding: 1rem 0; }
+  /* The navbar is transparent over the hero, so the opened menu needs its
+     own surface or the links sit on top of the page content behind it. */
+  .cdp-nav .navbar-collapse {
+    background: rgba(8,12,20,.98);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    margin: 1rem -12px -1rem;      /* bleed past .container-xl's 12px padding */
+    padding: .5rem 1.25rem 1.25rem;
+    border-top: 1px solid rgba(255,255,255,.08);
+    box-shadow: 0 18px 34px rgba(0,0,0,.45);
+  }
   .navbar-nav .nav-link { padding: .625rem 0 !important; border-bottom: 1px solid rgba(255,255,255,.06); }
   .navbar-nav .nav-item:last-child .nav-link { border-bottom: none; }
-  .navbar-collapse .btn { margin-top: .75rem; width: 100%; justify-content: center; }
+  .navbar-collapse .btn { margin-top: 1.5rem; width: 100%; justify-content: center; }
 }
 
 /* ── Print ────────────────────────────────────────────────────── */
