@@ -1008,6 +1008,11 @@
     if (open && !wrap.contains(e.target)) setOpen(false);
   });
 
+  /* Options are not focusable, so pressing the mouse on one blurs the trigger
+     and the blur handler below would close the panel before the click landed.
+     Keeping focus on the trigger lets the click through. */
+  panel.addEventListener('mousedown', function (e) { e.preventDefault(); });
+
   /* Leaving the widget runs the same blur validation the native select had,
      so the error message behaves exactly as before. */
   trigger.addEventListener('blur', function () {
