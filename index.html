@@ -986,10 +986,10 @@
       <p class="cdp-section-sub">Adjust the sliders to match your restaurant &mdash; see the potential impact.</p>
     </div>
 
-    <div class="row g-4 align-items-start fade-up">
+    <div class="row g-4 align-items-stretch fade-up">
       <!-- Inputs -->
       <div class="col-lg-3">
-        <div class="card border-0 shadow-sm p-4">
+        <div class="card border-0 shadow-sm p-4 h-100">
           <h3 class="fw-bold mb-3" style="font-family:var(--f-head);font-size:1rem;">Your Numbers</h3>
           <div class="mb-3">
             <label class="cdp-roi-label" for="roi-guests">Guest Database Size</label>
@@ -1023,64 +1023,66 @@
 
       <!-- Impact table -->
       <div class="col-lg-6">
-        <div class="card border-0 shadow-sm">
-          <div class="card-body p-0">
-            <table class="table table-hover mb-0 align-middle">
-              <thead class="table-light">
+        <div class="card border-0 shadow-sm h-100">
+          <div class="card-body p-0 d-flex flex-column">
+            <div class="table-responsive cdp-roi-t-fill">
+              <table class="table cdp-roi-t align-middle mb-0">
+                <thead>
+                  <tr>
+                    <th scope="col">Revenue Lever</th>
+                    <th scope="col">Target Segment</th>
+                    <th scope="col" class="text-end">Uplift</th>
+                  </tr>
+                </thead>
+                <tbody>
                 <tr>
-                  <th class="ps-4" style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;">Revenue Lever</th>
-                  <th style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;">Target Segment</th>
-                  <th class="text-end pe-4" style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;">Uplift</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="ps-4">Win-back campaign</td>
-                  <td><span class="badge bg-danger bg-opacity-10 text-danger">At-risk guests</span></td>
-                  <td class="text-end pe-4 text-success fw-semibold" id="roi-row1">&mdash;</td>
-                </tr>
-                <tr>
-                  <td class="ps-4">Frequency uplift</td>
-                  <td><span class="badge bg-primary bg-opacity-10 text-primary">Returning guests</span></td>
-                  <td class="text-end pe-4 text-success fw-semibold" id="roi-row2">&mdash;</td>
+                  <td class="cdp-roi-t__lever">Win-back campaign</td>
+                  <td><span class="cdp-seg cdp-seg--red">At-risk guests</span></td>
+                  <td class="text-end cdp-roi-t__val" id="roi-row1">&mdash;</td>
                 </tr>
                 <tr>
-                  <td class="ps-4">Ticket size upsell</td>
-                  <td><span class="badge bg-success bg-opacity-10 text-success">All guests</span></td>
-                  <td class="text-end pe-4 text-success fw-semibold" id="roi-row3">&mdash;</td>
+                  <td class="cdp-roi-t__lever">Frequency uplift</td>
+                  <td><span class="cdp-seg cdp-seg--blue">Returning guests</span></td>
+                  <td class="text-end cdp-roi-t__val" id="roi-row2">&mdash;</td>
                 </tr>
                 <tr>
-                  <td class="ps-4">Reactivation</td>
-                  <td><span class="badge bg-secondary bg-opacity-10 text-secondary">Churned guests</span></td>
-                  <td class="text-end pe-4 text-success fw-semibold" id="roi-row4">&mdash;</td>
+                  <td class="cdp-roi-t__lever">Ticket size upsell</td>
+                  <td><span class="cdp-seg cdp-seg--green">All guests</span></td>
+                  <td class="text-end cdp-roi-t__val" id="roi-row3">&mdash;</td>
                 </tr>
-              </tbody>
-            </table>
+                <tr>
+                  <td class="cdp-roi-t__lever">Reactivation</td>
+                  <td><span class="cdp-seg cdp-seg--grey">Churned guests</span></td>
+                  <td class="text-end cdp-roi-t__val" id="roi-row4">&mdash;</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th scope="row" colspan="2">Total added revenue</th>
+                    <td class="text-end cdp-roi-t__total" id="roi-total">&mdash;</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Results -->
       <div class="col-lg-3">
-        <div class="row g-3">
-          <div class="col-12">
-            <div class="card border-0 shadow-sm p-4 text-center">
-              <div class="cdp-roi-label text-center mb-1">Added Monthly Revenue</div>
-              <div class="cdp-roi-val cdp-roi-val--green" id="roi-monthly">&mdash;</div>
-            </div>
+        <div class="cdp-roi-out">
+          <div class="card border-0 shadow-sm p-4 text-center">
+            <div class="cdp-roi-label text-center mb-1">Added Monthly Revenue</div>
+            <div class="cdp-roi-val cdp-roi-val--green" id="roi-monthly">&mdash;</div>
           </div>
-          <div class="col-12">
-            <div class="card border-0 shadow-sm p-4 text-center">
-              <div class="cdp-roi-label text-center mb-1">Added Annual Revenue</div>
-              <div class="cdp-roi-val cdp-roi-val--blue" id="roi-annual">&mdash;</div>
-            </div>
+          <div class="card border-0 shadow-sm p-4 text-center">
+            <div class="cdp-roi-label text-center mb-1">Added Annual Revenue</div>
+            <div class="cdp-roi-val cdp-roi-val--blue" id="roi-annual">&mdash;</div>
           </div>
-          <div class="col-12">
-            <div class="card border-0 shadow-sm p-4 text-center">
-              <div class="cdp-roi-label text-center mb-1">Estimated ROI</div>
-              <div class="cdp-roi-val" id="roi-multiple">&mdash;</div>
-              <div class="cdp-roi-basis" id="roi-basis"></div>
-            </div>
+          <div class="card border-0 shadow-sm p-4 text-center">
+            <div class="cdp-roi-label text-center mb-1">Estimated ROI</div>
+            <div class="cdp-roi-val" id="roi-multiple">&mdash;</div>
+            <div class="cdp-roi-basis" id="roi-basis"></div>
           </div>
         </div>
       </div>
@@ -1211,62 +1213,70 @@
     </div>
 
     <!-- Comparison table -->
-    <div class="table-responsive fade-up">
-      <table class="table table-hover align-middle">
-        <thead class="table-light">
+    <div class="cdp-cmp-wrap fade-up">
+      <div class="cdp-cmp-legend" role="note">
+        <span><span class="cdp-cmp-s cdp-cmp-s--yes"><i class="fas fa-check" aria-hidden="true"></i></span>Built in</span>
+        <span><span class="cdp-cmp-s cdp-cmp-s--part"><i class="fas fa-minus" aria-hidden="true"></i></span>Limited or extra work</span>
+        <span><span class="cdp-cmp-s cdp-cmp-s--no"><i class="fas fa-xmark" aria-hidden="true"></i></span>Not available</span>
+      </div>
+      <div class="table-responsive">
+        <table class="table cdp-cmp align-middle">
+          <caption class="visually-hidden">Capability comparison between CDP Platform, Klaviyo, Mailchimp and a generic CRM</caption>
+          <thead>
+            <tr>
+              <th scope="col">Capability</th>
+              <th scope="col" class="cdp-cmp__own">CDP Platform</th>
+              <th scope="col">Klaviyo</th>
+              <th scope="col">Mailchimp</th>
+              <th scope="col">Generic CRM</th>
+            </tr>
+          </thead>
+          <tbody>
           <tr>
-            <th style="font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;font-weight:700;">Capability</th>
-            <th class="text-center" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;font-weight:700;color:var(--cdp-blue);">CDP Platform</th>
-            <th class="text-center" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;font-weight:700;">Klaviyo</th>
-            <th class="text-center" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;font-weight:700;">Mailchimp</th>
-            <th class="text-center" style="font-size:.8rem;text-transform:uppercase;letter-spacing:.05em;font-weight:700;">Generic CRM</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="fw-medium">Restaurant POS integration</td>
-            <td class="text-center"><i class="fas fa-check-circle text-success"></i></td>
-            <td class="text-center"><span class="text-muted" style="font-size:.8rem;">Custom dev</span></td>
-            <td class="text-center"><i class="fas fa-times-circle text-danger opacity-50"></i></td>
-            <td class="text-center"><i class="fas fa-times-circle text-danger opacity-50"></i></td>
-          </tr>
-          <tr>
-            <td class="fw-medium">Revenue attribution to campaigns</td>
-            <td class="text-center"><i class="fas fa-check-circle text-success"></i></td>
-            <td class="text-center"><i class="fas fa-check-circle text-success opacity-50"></i></td>
-            <td class="text-center"><i class="fas fa-times-circle text-danger opacity-50"></i></td>
-            <td class="text-center"><i class="fas fa-times-circle text-danger opacity-50"></i></td>
-          </tr>
-          <tr>
-            <td class="fw-medium">AI churn prediction</td>
-            <td class="text-center"><i class="fas fa-check-circle text-success"></i></td>
-            <td class="text-center"><i class="fas fa-times-circle text-danger opacity-50"></i></td>
-            <td class="text-center"><i class="fas fa-times-circle text-danger opacity-50"></i></td>
-            <td class="text-center"><i class="fas fa-times-circle text-danger opacity-50"></i></td>
+            <th scope="row">Restaurant POS integration</th>
+            <td class="cdp-cmp__own"><span class="cdp-cmp-s cdp-cmp-s--yes"><i class="fas fa-check" aria-hidden="true"></i><span class="visually-hidden">Built in</span></span></td>
+            <td><span class="cdp-cmp-s cdp-cmp-s--part"><i class="fas fa-minus" aria-hidden="true"></i><span class="cdp-cmp-s__lbl">Custom dev</span></span></td>
+            <td><span class="cdp-cmp-s cdp-cmp-s--no"><i class="fas fa-xmark" aria-hidden="true"></i><span class="visually-hidden">Not available</span></span></td>
+            <td><span class="cdp-cmp-s cdp-cmp-s--no"><i class="fas fa-xmark" aria-hidden="true"></i><span class="visually-hidden">Not available</span></span></td>
           </tr>
           <tr>
-            <td class="fw-medium">Live RFM segments</td>
-            <td class="text-center"><i class="fas fa-check-circle text-success"></i></td>
-            <td class="text-center"><span class="text-muted" style="font-size:.8rem;">Manual</span></td>
-            <td class="text-center"><i class="fas fa-times-circle text-danger opacity-50"></i></td>
-            <td class="text-center"><span class="text-muted" style="font-size:.8rem;">Custom</span></td>
+            <th scope="row">Revenue attribution to campaigns</th>
+            <td class="cdp-cmp__own"><span class="cdp-cmp-s cdp-cmp-s--yes"><i class="fas fa-check" aria-hidden="true"></i><span class="visually-hidden">Built in</span></span></td>
+            <td><span class="cdp-cmp-s cdp-cmp-s--part"><i class="fas fa-minus" aria-hidden="true"></i><span class="cdp-cmp-s__lbl">Partial</span></span></td>
+            <td><span class="cdp-cmp-s cdp-cmp-s--no"><i class="fas fa-xmark" aria-hidden="true"></i><span class="visually-hidden">Not available</span></span></td>
+            <td><span class="cdp-cmp-s cdp-cmp-s--no"><i class="fas fa-xmark" aria-hidden="true"></i><span class="visually-hidden">Not available</span></span></td>
           </tr>
           <tr>
-            <td class="fw-medium">GDPR consent management</td>
-            <td class="text-center"><i class="fas fa-check-circle text-success"></i></td>
-            <td class="text-center"><i class="fas fa-check-circle text-success opacity-50"></i></td>
-            <td class="text-center"><i class="fas fa-check-circle text-success opacity-50"></i></td>
-            <td class="text-center"><span class="text-muted" style="font-size:.8rem;">Add-on</span></td>
+            <th scope="row">AI churn prediction</th>
+            <td class="cdp-cmp__own"><span class="cdp-cmp-s cdp-cmp-s--yes"><i class="fas fa-check" aria-hidden="true"></i><span class="visually-hidden">Built in</span></span></td>
+            <td><span class="cdp-cmp-s cdp-cmp-s--no"><i class="fas fa-xmark" aria-hidden="true"></i><span class="visually-hidden">Not available</span></span></td>
+            <td><span class="cdp-cmp-s cdp-cmp-s--no"><i class="fas fa-xmark" aria-hidden="true"></i><span class="visually-hidden">Not available</span></span></td>
+            <td><span class="cdp-cmp-s cdp-cmp-s--no"><i class="fas fa-xmark" aria-hidden="true"></i><span class="visually-hidden">Not available</span></span></td>
           </tr>
           <tr>
-            <td class="fw-medium">Time to first campaign</td>
-            <td class="text-center fw-bold text-success">3 weeks</td>
-            <td class="text-center text-muted" style="font-size:.85rem;">6&ndash;8 weeks</td>
-            <td class="text-center text-muted" style="font-size:.85rem;">1&ndash;2 weeks</td>
-            <td class="text-center text-muted" style="font-size:.85rem;">3&ndash;6 months</td>
+            <th scope="row">Live RFM segments</th>
+            <td class="cdp-cmp__own"><span class="cdp-cmp-s cdp-cmp-s--yes"><i class="fas fa-check" aria-hidden="true"></i><span class="visually-hidden">Built in</span></span></td>
+            <td><span class="cdp-cmp-s cdp-cmp-s--part"><i class="fas fa-minus" aria-hidden="true"></i><span class="cdp-cmp-s__lbl">Manual</span></span></td>
+            <td><span class="cdp-cmp-s cdp-cmp-s--no"><i class="fas fa-xmark" aria-hidden="true"></i><span class="visually-hidden">Not available</span></span></td>
+            <td><span class="cdp-cmp-s cdp-cmp-s--part"><i class="fas fa-minus" aria-hidden="true"></i><span class="cdp-cmp-s__lbl">Custom</span></span></td>
           </tr>
-        </tbody>
-      </table>
+          <tr>
+            <th scope="row">GDPR consent management</th>
+            <td class="cdp-cmp__own"><span class="cdp-cmp-s cdp-cmp-s--yes"><i class="fas fa-check" aria-hidden="true"></i><span class="visually-hidden">Built in</span></span></td>
+            <td><span class="cdp-cmp-s cdp-cmp-s--yes"><i class="fas fa-check" aria-hidden="true"></i><span class="visually-hidden">Built in</span></span></td>
+            <td><span class="cdp-cmp-s cdp-cmp-s--yes"><i class="fas fa-check" aria-hidden="true"></i><span class="visually-hidden">Built in</span></span></td>
+            <td><span class="cdp-cmp-s cdp-cmp-s--part"><i class="fas fa-minus" aria-hidden="true"></i><span class="cdp-cmp-s__lbl">Add-on</span></span></td>
+          </tr>
+          <tr class="cdp-cmp__fact">
+            <th scope="row">Time to first campaign</th>
+            <td class="cdp-cmp__own"><span class="cdp-cmp-time">3 weeks</span></td>
+            <td><span class="cdp-cmp-time">6&ndash;8 weeks</span></td>
+            <td><span class="cdp-cmp-time">1&ndash;2 weeks</span></td>
+            <td><span class="cdp-cmp-time">3&ndash;6 months</span></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </section>
