@@ -124,21 +124,118 @@
       padding: .75rem 1rem;
       font-size: .9rem; font-family: 'Inter', sans-serif;
       color: #0A0F1E;
-      background: #F4F7FF;
+      background-color: #F4F7FF;
       border: 1.5px solid #DDE5F7;
       border-radius: 10px;
       outline: none;
-      transition: border-color .15s, box-shadow .15s, background .15s;
+      transition: border-color .15s, box-shadow .15s, background-color .15s;
     }
     .cdp-input:focus {
       border-color: #1B4FFF;
-      background: #fff;
+      background-color: #fff;
       box-shadow: 0 0 0 4px rgba(27,79,255,.08);
     }
     .cdp-input::placeholder { color: #A0AEC0; }
-    .cdp-input.is-invalid { border-color: #FF4747; background: #FFF5F5; }
+    .cdp-input.is-invalid { border-color: #FF4747; background-color: #FFF5F5; }
     .cdp-error { font-size: .75rem; color: #FF4747; margin-top: .3rem; display: block; min-height: 1rem; }
-    select.cdp-input { cursor: pointer; }
+    /* The global select:focus-visible ring squares the corners to 4px, drawing a
+       rectangle around a 10px control; match the control instead. */
+    .cdp-input:focus-visible { border-radius: 10px; outline-offset: 2px; }
+
+    /* Native select restyled: own chevron, and explicit option colours so the
+       popup list never inherits the invalid state's pink fill. */
+    select.cdp-input {
+      cursor: pointer;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      padding-right: 2.75rem;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' stroke='%2364748B' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 12px 8px;
+    }
+    select.cdp-input:focus { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5 6 6.5 11 1.5' stroke='%231B4FFF' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+    select.cdp-input option {
+      background-color: #fff;
+      color: #0A0F1E;
+    }
+    /* Empty value reads as a hint, not a chosen answer */
+    select.cdp-input:invalid { color: #8A97AC; }
+    select.cdp-input option[value=""] { color: #8A97AC; }
+
+    /* ── Custom select ──────────────────────────────────────────────
+       Chrome's native popup ignores row height, padding and the highlight
+       colour, so the list is rebuilt. Touch keeps the native picker. */
+    .cdp-select { position: relative; }
+    .cdp-select__native {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+    .cdp-select__trigger {
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+      padding: .75rem 1rem;
+      font-size: .9rem; font-family: 'Inter', sans-serif; text-align: left;
+      color: #0A0F1E;
+      background-color: #F4F7FF;
+      border: 1.5px solid #DDE5F7;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: border-color .15s, box-shadow .15s, background-color .15s;
+    }
+    .cdp-select__trigger:hover { border-color: #C3D3F3; }
+    .cdp-select__trigger:focus-visible,
+    .cdp-select__trigger[aria-expanded="true"] {
+      outline: none;
+      border-color: #1B4FFF;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 0 4px rgba(27,79,255,.08);
+    }
+    .cdp-select--invalid .cdp-select__trigger { border-color: #FF4747; background-color: #FFF5F5; }
+    .cdp-select__value { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .cdp-select__value--empty { color: #8A97AC; }
+    .cdp-select__chev { flex: none; color: #64748B; transition: transform .18s ease, color .18s ease; }
+    .cdp-select__trigger[aria-expanded="true"] .cdp-select__chev { transform: rotate(180deg); color: #1B4FFF; }
+
+    .cdp-select__panel {
+      position: absolute; z-index: 50; left: 0; right: 0; top: calc(100% + 6px);
+      margin: 0; padding: 6px; list-style: none;
+      background: #fff;
+      border: 1px solid #E6ECF8;
+      border-radius: 12px;
+      box-shadow: 0 14px 34px rgba(16,32,64,.14), 0 2px 6px rgba(16,32,64,.06);
+      max-height: 320px; overflow-y: auto;
+      opacity: 0; visibility: hidden; transform: translateY(-4px);
+      transition: opacity .16s ease, transform .16s ease, visibility .16s;
+    }
+    .cdp-select__panel--open { opacity: 1; visibility: visible; transform: translateY(0); }
+    .cdp-select__opt {
+      display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+      padding: .6rem .7rem;
+      border-radius: 8px;
+      font-size: .88rem; color: #1E2838;
+      cursor: pointer; user-select: none;
+    }
+    .cdp-select__opt--active { background-color: #F1F5FD; }
+    .cdp-select__opt[aria-selected="true"] {
+      color: #1B4FFF; font-weight: 600; background-color: rgba(27,79,255,.07);
+    }
+    .cdp-select__opt[aria-selected="true"].cdp-select__opt--active { background-color: rgba(27,79,255,.13); }
+    .cdp-select__opt--empty { color: #8A97AC; }
+    /* The empty row stays aria-selected while nothing is chosen, which is
+       correct for a listbox, but it should not look like an answer. */
+    .cdp-select__opt--empty[aria-selected="true"] {
+      color: #8A97AC; font-weight: 400; background-color: transparent;
+    }
+    .cdp-select__opt--empty[aria-selected="true"].cdp-select__opt--active { background-color: #F1F5FD; }
+    .cdp-select__opt--empty .cdp-select__check { display: none; }
+    .cdp-select__check { flex: none; opacity: 0; }
+    .cdp-select__opt[aria-selected="true"] .cdp-select__check { opacity: 1; }
+    @media (prefers-reduced-motion: reduce) {
+      .cdp-select__panel, .cdp-select__chev { transition: none; }
+    }
 
     /* Honeypot — off-screen rather than display:none */
     .cdp-hp {
@@ -765,6 +862,174 @@
     spinner.style.display = 'none';
   };
 
+})();
+</script>
+<!-- Custom select: mirrors the native select, which stays the source of truth -->
+<script>
+(function () {
+  var select = document.getElementById('subject');
+  if (!select) return;
+  /* On touch the OS picker beats anything rebuilt in the page. */
+  if (window.matchMedia && window.matchMedia('(pointer: coarse)').matches) return;
+
+  var CHEV  = '<svg class="cdp-select__chev" width="12" height="8" viewBox="0 0 12 8" fill="none" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  var CHECK = '<svg class="cdp-select__check" width="13" height="10" viewBox="0 0 13 10" fill="none" aria-hidden="true"><path d="M1 5.2 4.6 8.8 12 1.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  var label = document.querySelector('label[for="subject"]');
+  if (label && !label.id) label.id = 'subjectLabel';
+
+  var wrap = document.createElement('div');
+  wrap.className = 'cdp-select';
+  select.parentNode.insertBefore(wrap, select);
+  wrap.appendChild(select);
+  select.classList.remove('cdp-input');
+  select.classList.add('cdp-select__native');
+  select.setAttribute('tabindex', '-1');
+  select.setAttribute('aria-hidden', 'true');
+
+  var trigger = document.createElement('button');
+  trigger.type = 'button';
+  trigger.id = 'subjectTrigger';
+  trigger.className = 'cdp-select__trigger';
+  trigger.setAttribute('aria-haspopup', 'listbox');
+  trigger.setAttribute('aria-expanded', 'false');
+  trigger.setAttribute('aria-controls', 'subjectListbox');
+  trigger.setAttribute('aria-describedby', 'subjectError');
+  if (label) trigger.setAttribute('aria-labelledby', label.id);
+  trigger.innerHTML = '<span class="cdp-select__value"></span>' + CHEV;
+
+  var panel = document.createElement('ul');
+  panel.id = 'subjectListbox';
+  panel.className = 'cdp-select__panel';
+  panel.setAttribute('role', 'listbox');
+  if (label) panel.setAttribute('aria-labelledby', label.id);
+
+  var opts = [];
+  Array.prototype.forEach.call(select.options, function (o, i) {
+    var li = document.createElement('li');
+    li.id = 'subjectOpt' + i;
+    li.className = 'cdp-select__opt' + (o.value ? '' : ' cdp-select__opt--empty');
+    li.setAttribute('role', 'option');
+    li.setAttribute('aria-selected', 'false');
+    li.setAttribute('data-value', o.value);
+    li.innerHTML = '<span></span>' + CHECK;
+    li.firstChild.textContent = o.textContent;
+    panel.appendChild(li);
+    opts.push(li);
+  });
+
+  wrap.appendChild(trigger);
+  wrap.appendChild(panel);
+
+  var open = false, active = -1;
+  var valueEl = trigger.querySelector('.cdp-select__value');
+
+  function paint() {
+    var i = select.selectedIndex;
+    var o = select.options[i];
+    valueEl.textContent = o ? o.textContent : '';
+    valueEl.classList.toggle('cdp-select__value--empty', !(o && o.value));
+    opts.forEach(function (li, n) {
+      li.setAttribute('aria-selected', n === i ? 'true' : 'false');
+      li.classList.toggle('cdp-select__opt--active', n === active);
+    });
+    if (active >= 0) trigger.setAttribute('aria-activedescendant', opts[active].id);
+    else trigger.removeAttribute('aria-activedescendant');
+  }
+
+  function setOpen(next) {
+    open = next;
+    panel.classList.toggle('cdp-select__panel--open', open);
+    trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    active = open ? select.selectedIndex : -1;
+    paint();
+    if (open && opts[active] && opts[active].scrollIntoView) {
+      opts[active].scrollIntoView({ block: 'nearest' });
+    }
+  }
+
+  function choose(i) {
+    if (i < 0 || i >= opts.length) return;
+    select.selectedIndex = i;
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+    setOpen(false);
+    trigger.focus();
+  }
+
+  function move(delta) {
+    if (!open) { setOpen(true); return; }
+    var n = active < 0 ? select.selectedIndex : active;
+    n = Math.max(0, Math.min(opts.length - 1, n + delta));
+    active = n;
+    paint();
+    if (opts[n].scrollIntoView) opts[n].scrollIntoView({ block: 'nearest' });
+  }
+
+  trigger.addEventListener('click', function () { setOpen(!open); });
+
+  trigger.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowDown') { e.preventDefault(); move(1); return; }
+    if (e.key === 'ArrowUp')   { e.preventDefault(); move(-1); return; }
+    if (e.key === 'Home' && open) { e.preventDefault(); active = 0; paint(); return; }
+    if (e.key === 'End'  && open) { e.preventDefault(); active = opts.length - 1; paint(); return; }
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      if (open) choose(active < 0 ? select.selectedIndex : active); else setOpen(true);
+      return;
+    }
+    if (e.key === 'Escape') { if (open) { e.preventDefault(); setOpen(false); } return; }
+    if (e.key === 'Tab')    { if (open) setOpen(false); return; }
+    /* Type-ahead, matching the native control. */
+    if (e.key.length === 1 && !e.metaKey && !e.ctrlKey && !e.altKey) {
+      var ch = e.key.toLowerCase();
+      var from = (active < 0 ? select.selectedIndex : active) + 1;
+      for (var k = 0; k < opts.length; k++) {
+        var n = (from + k) % opts.length;
+        if (!select.options[n].value) continue;
+        if (opts[n].textContent.trim().toLowerCase().indexOf(ch) === 0) {
+          if (!open) setOpen(true);
+          active = n;
+          paint();
+          if (opts[n].scrollIntoView) opts[n].scrollIntoView({ block: 'nearest' });
+          break;
+        }
+      }
+    }
+  });
+
+  opts.forEach(function (li, i) {
+    li.addEventListener('click', function () { choose(i); });
+    li.addEventListener('mousemove', function () {
+      if (active !== i) { active = i; paint(); }
+    });
+  });
+
+  document.addEventListener('mousedown', function (e) {
+    if (open && !wrap.contains(e.target)) setOpen(false);
+  });
+
+  /* Leaving the widget runs the same blur validation the native select had,
+     so the error message behaves exactly as before. */
+  trigger.addEventListener('blur', function () {
+    window.setTimeout(function () {
+      if (!wrap.contains(document.activeElement)) {
+        if (open) setOpen(false);
+        select.dispatchEvent(new FocusEvent('blur'));
+      }
+    }, 0);
+  });
+
+  /* On submit the form focuses the first .is-invalid field, which is now the
+     hidden native element, so hand focus to the visible trigger. */
+  select.addEventListener('focus', function () { trigger.focus(); });
+
+  /* setFieldError toggles is-invalid on the native element. Mirror it. */
+  new MutationObserver(function () {
+    wrap.classList.toggle('cdp-select--invalid', select.classList.contains('is-invalid'));
+  }).observe(select, { attributes: true, attributeFilter: ['class'] });
+
+  select.addEventListener('change', paint);
+  paint();
 })();
 </script>
 </body>

@@ -175,14 +175,14 @@
     var investment  = plan.cost + monthly * OFFER_RATE;
     var roi         = investment > 0 ? grossProfit / investment : 0;
 
-    var r1 = document.getElementById('roi-row1');
-    var r2 = document.getElementById('roi-row2');
-    var r3 = document.getElementById('roi-row3');
-    var r4 = document.getElementById('roi-row4');
-    if (r1) r1.textContent = '+' + fmt(winback) + '/mo';
-    if (r2) r2.textContent = '+' + fmt(freqUplift) + '/mo';
-    if (r3) r3.textContent = '+' + fmt(ticketUp) + '/mo';
-    if (r4) r4.textContent = '+' + fmt(reactivate) + '/mo';
+    var levers = [winback, freqUplift, ticketUp, reactivate];
+    levers.forEach(function (value, i) {
+      var cell = document.getElementById('roi-row' + (i + 1));
+      if (cell) cell.textContent = '+' + fmt(value) + '/mo';
+    });
+
+    var rt = document.getElementById('roi-total');
+    if (rt) rt.textContent = '+' + fmt(monthly) + '/mo';
 
     var rm = document.getElementById('roi-monthly');
     var ra = document.getElementById('roi-annual');
